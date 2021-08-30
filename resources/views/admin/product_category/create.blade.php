@@ -5,7 +5,7 @@
 @section('content')
 <div class="card card-bordered">
     <div class="card-inner">
-        <form action="/product_categories/store" class="form-validate" novalidate="novalidate" method="GET">
+        <form action="{{route('product_category.store')}}" class="form-validate" novalidate="novalidate" method="GET">
         @csrf
         <div class="row g-gs">
                 <div class="col-md-6">

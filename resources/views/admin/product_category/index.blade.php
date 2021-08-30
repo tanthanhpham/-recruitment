@@ -65,8 +65,8 @@
                             <a class="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
                                 <ul class="link-list-plain">
-                                    <li><a href="{{URL::to('product_categories/edit/'.$cate->id)}}">Edit</a></li>
-                                    <li><a href="{{URL::to('product_categories/delete/'.$cate->id)}}">Remove</a></li>
+                                    <li><a href="{{route('product_category.edit', ['id' => $cate->id])}}">Edit</a></li>
+                                    <li><a href="{{route('product_category.delete', ['id' => $cate->id])}}">Remove</a></li>
                                 </ul>
                             </div>
                         </div>

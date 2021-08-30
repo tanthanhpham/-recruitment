@@ -3,7 +3,7 @@
 ])
 
 @section('content')
-<form action="/brands/store" method="POST" enctype='multipart/form-data'>
+<form action="{{route('brand.store')}}" method="POST" enctype='multipart/form-data'>
     @csrf
     <div class="card card-bordered">
         <div class="card-inner">
@@ -29,7 +29,8 @@
                         <label class="form-label" for="image">Image</label>
                         <div class="form-control-wrap">
                             <div class="input-group">
-                                <input type="file" class="form-control" name="image" required="">
+                                <input type="file" class="custom-file-input" id="image" name="image" required="">
+                                <label class="custom-file-label" for="image">Choose file</label>
                             </div>
                         </div>
                     </div>

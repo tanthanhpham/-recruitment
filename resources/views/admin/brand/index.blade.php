@@ -65,12 +65,12 @@
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <ul class="link-list-opt no-bdr">
                                                             <li>
-                                                                <a href="{{URL::to('brands/edit/'.$brand->id)}}">
+                                                                <a href="{{route('brand.edit', ['id' => $brand->id])}}">
                                                                     <em class="icon ni ni-edit"></em><span>Edit brand</span>
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="">
+                                                                <a href="{{route('brand.delete', ['id' => $brand->id])}}">
                                                                     <em class="icon ni ni-trash"></em><span>Delete brand</span>
                                                                 </a>
                                                             </li>
@@ -91,7 +91,7 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-body">
-                <form action="/brands/store" method="POST" enctype='multipart/form-data'>
+                <form action="{{route('brand.store')}}" method="POST" enctype='multipart/form-data'>
                     @csrf
                     <div class="card card-bordered">
                         <div class="card-inner">

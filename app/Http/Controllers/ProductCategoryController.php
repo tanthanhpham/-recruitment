@@ -37,7 +37,7 @@ class ProductCategoryController extends Controller
         $category->alias=$data['alias'];
         $category->p_category_id=$data['p_category_id'];
         $category->save();
-        return redirect('product_categories/')->with('success','Thêm thành công');
+        return redirect('admin/product_categories')->with('success','Thêm thành công');
     }
 
     public function edit($id){
@@ -65,12 +65,12 @@ class ProductCategoryController extends Controller
         $category->p_category_id=$data['p_category_id'];
         $category->save();
 
-        return redirect('product_categories/')->with('success','Cập nhật dữ liệu thành công');
+        return redirect('admin/product_categories/')->with('success','Cập nhật dữ liệu thành công');
     }
     public function delete($id){
         Category::where('id',$id)->delete();
         // var_dump($id);exit();
-        return redirect('product_categories/')->with('success','Xoá dữ liệu thành công');
+        return redirect('admin/product_categories/')->with('success','Xoá dữ liệu thành công');
     }
 
     

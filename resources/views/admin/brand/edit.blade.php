@@ -3,7 +3,7 @@
 ])
 
 @section('content')
-<form action="/brands/update/{{$brand->id}}" method="POST" enctype='multipart/form-data'>
+<form action="{{route('brand.update', ['id' => $brand->id])}}" method="POST" enctype='multipart/form-data'>
     @csrf
     <div class="card card-bordered">
         <div class="card-inner">

@@ -20,7 +20,7 @@
                     <li class="nk-menu-item has-sub">
                         <a href="{{route('admin.index')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-file-docs"></em></span>
-                            <span class="nk-menu-text">Users</span>
+                            <span class="nk-menu-text">User</span>
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item has-sub">
@@ -30,21 +30,16 @@
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item has-sub">
-                        <a href="" class="nk-menu-link nk-menu-toggle">
-                            <span class="nk-menu-icon"><em class="icon ni ni-card-view"></em></span>
-                            <span class="nk-menu-text">Products</span>
+                        <a href="{{route('brand.index')}}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-block-over"></em></span>
+                            <span class="nk-menu-text">Brand</span>
                         </a>
-                        <ul class="nk-menu-sub">
-                            <li class="nk-menu-item">
-                                <a href="" class="nk-menu-link"><span class="nk-menu-text">Product List</span></a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="" class="nk-menu-link"><span class="nk-menu-text">Product Card</span></a>
-                            </li>
-                            <li class="nk-menu-item">
-                                <a href="" class="nk-menu-link"><span class="nk-menu-text">Product Details</span></a>
-                            </li>
-                        </ul><!-- .nk-menu-sub -->
+                    </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-card-view"></em></span>
+                            <span class="nk-menu-text">Product</span>
+                        </a>
                     </li><!-- .nk-menu-item -->
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-sidebar-menu -->
