@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,13 +50,17 @@ Route::middleware(['admin'])->group(function () {
     Route::get('admin/brands/edit/{id}', [BrandController::class,'edit'])->name('brand.edit');
     Route::post('admin/brands/update/{id}', [BrandController::class,'update'])->name('brand.update');
     Route::get('admin/brands/delete/{id}', [BrandController::class,'delete'])->name('brand.delete');
+    // Products
+    Route::get('admin/products', [ProductController::class,'index'])->name('product.index');
+    Route::get('admin/products/create', [ProductController::class,'create'])->name('product.create');
+    Route::post('admin/products/store', [ProductController::class,'store'])->name('product.store');
+    Route::get('admin/products/edit/{id}', [ProductController::class,'edit'])->name('product.edit');
+    Route::post('admin/products/update/{id}', [ProductController::class,'update'])->name('product.update');
+    Route::get('admin/products/delete/{id}', [ProductController::class,'delete'])->name('product.delete');
+    Route::get('admin/products/show/{id}', [ProductController::class,'show'])->name('product.show');
+    // Add price
+    Route::post('admin/products/price', [ProductController::class,'price'])->name('product.price');
 
-    Route::get('admin/brands', [BrandController::class,'index'])->name('brand.index');
-    Route::get('admin/brands/create', [BrandController::class,'create'])->name('brand.create');
-    Route::post('admin/brands/store', [BrandController::class,'store'])->name('brand.store');
-    Route::get('admin/brands/edit/{id}', [BrandController::class,'edit'])->name('brand.edit');
-    Route::post('admin/brands/update/{id}', [BrandController::class,'update'])->name('brand.update');
-    Route::get('admin/brands/delete/{id}', [BrandController::class,'delete'])->name('brand.delete');
 });
 
 

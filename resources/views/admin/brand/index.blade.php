@@ -29,7 +29,7 @@
                                 <div class="nk-tb-col"><span>Name</span></div>
                                 <div class="nk-tb-col"><span>Slug</span></div>
                                 <div class="nk-tb-col nk-tb-col-tools">
-                                    <ul class="nk-tb-actions gx-1 my-n1">
+                                    <!-- <ul class="nk-tb-actions gx-1 my-n1">
                                         <li class="mr-n1">
                                             <div class="dropdown">
                                                 <a href="#" class="dropdown-toggle btn btn-icon btn-trigger"
@@ -37,7 +37,7 @@
                                                
                                             </div>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div><!-- .nk-tb-item -->
                             @foreach($brands as $i => $brand)
