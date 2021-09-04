@@ -1,5 +1,5 @@
 @extends('admin.layout', [
-    'title' => ( $title ?? 'Account Management' )
+    'title' => ( $title ?? 'Product' )
 ])
 
 @section('main')
@@ -23,7 +23,7 @@
                                     <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-more-v"></em></a>
                                     <div class="toggle-expand-content" data-content="pageMenu">
                                         <ul class="nk-block-tools g-3">
-                                            <li class="nk-block-tools-opt"><a href="{{route('admin.create') }}" class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Create Account</span></a></li>
+                                            <li class="nk-block-tools-opt"><a href="{{route('product.create') }}" class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Create Product</span></a></li>
                                         </ul>
                                     </div>
                                 </div>

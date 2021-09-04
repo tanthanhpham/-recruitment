@@ -32,7 +32,7 @@
                                 <option label="empty" value="" data-select2-id="4"></option>
                                 <option value="0">Root Category</option>
                                 @foreach($category as $cate)
-                                <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                    <option value="{{$cate->id}}">{{$cate->name}}</option>
                                 @endforeach
                             </select>
                         </div>

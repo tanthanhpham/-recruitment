@@ -34,7 +34,7 @@ class BrandController extends Controller
         $brand->image = $imagePath;
         $brand->save();
 
-        return redirect('admin/brands')->with('success','Thêm thành công');
+        return redirect('admin/brands')->with('success','Added');
     }
 
     public function edit($id){
@@ -62,12 +62,12 @@ class BrandController extends Controller
         $brand->slug = $data['slug'];
         $brand->save();
 
-        return redirect('admin/brands')->with('success','Cập nhật thành công');
+        return redirect('admin/brands')->with('success','Updated');
     }
 
     public function delete($id){
         Brand::where('id',$id)->delete();
         // var_dump($id);exit();
-        return redirect('admin/brands')->with('success','Xoá dữ liệu thành công');
+        return redirect('admin/brands')->with('success','Deleted');
     }
 }

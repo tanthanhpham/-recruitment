@@ -57,7 +57,7 @@ class AdminController extends Controller
         $user->save();
         // $user = $this->admin->create($validated_data);
 
-        return redirect()->route('admin.index', ['user' => $user])->with('success', 'Tạo tài khoản thành công!');
+        return redirect()->route('admin.index', ['user' => $user])->with('success', 'Account successfully created');
 
     }
     
@@ -101,8 +101,7 @@ class AdminController extends Controller
         } else  $userlock->is_active=0;
         $userlock->save();
 
-        return redirect('admin/')->with('success','Lock/Unlock tài khoản thành công');
+        return redirect('admin/')->with('success','Account locked/unlocked successfully');
     } 
 
-  
 }
