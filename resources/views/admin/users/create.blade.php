@@ -25,9 +25,11 @@
                                     <em class="icon ni ni-mail"></em>
                                 </div>
                                 <input type="text" class="form-control" id="email" name="email" required="">
+                                <span id="error_email"></span>
                             </div>
                         </div>
                     </div>
+                    {{ csrf_field() }}
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label" for="phone">Phone</label>
@@ -88,36 +90,62 @@
                             </div>
                         </div>
                     </div>
-                    
+                  
                     <div class="col-md-12">
                         <div class="form-group d-flex justify-content-center">
-                            <button type="submit" class="btn btn-lg btn-primary">Save Informations</button>
+                            <button type="submit" id="register" class="btn btn-lg btn-primary">Save Informations</button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <!-- <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-    </div>
-    <div class="form-group">
-        <label for="phone">Phone</label>
-        <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
-    </div>
-    <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" class="form-control" name="email"id="email" aria-describedby="emailHelp" placeholder="Enter email">
-    </div>
-    <div class="form-group">
-        <label for="new_password">Password</label>
-        <input type="password" class="form-control" name="new_password" id="new_password" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <label for="new_password_confirmation">Re-enter password</label>
-        <input type="password" class="form-control" name="new_password_confirmation" id="new_password_confirmation" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button> -->
 </form>
 @endsection
+
+@push('footer')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+    $(document).ready(function(){
+        $('#email').blur(function(){
+            var error_email = '';
+            var email = $('#email').val();
+            var _token = $('input[name="_token"]').val();
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if(!filter.test(email))
+            {    
+                $('#email').addClass('has-error');
+                $('#error_email').html('<label class="text-danger">Invalid Email</label>');
+                $('#register').attr('disabled', 'disabled');
+            }
+            else
+            {
+                $.ajax({
+                    url:"{{ route('admin.checkemail') }}",
+                    method:"POST",
+                    data:{emailcheck:email, _token:_token},
+                    success:function(result)
+                    {
+                        if(result == 'unique')
+                        {
+                            $('#error_email').html('<label class="text-success">Email Available</label>');
+                            $('#email').removeClass('has-error');
+                            $('#register').attr('disabled', false);
+                        }
+                        else
+                        {
+                            $('#error_email').html('<label class="text-danger">Email not Available</label>');
+                            $('#email').addClass('has-error');
+                            $('#register').attr('disabled', 'disabled');
+                        }
+                    }
+                })
+            }
+        });
+    });
+</script>
+
+
+    @endpush

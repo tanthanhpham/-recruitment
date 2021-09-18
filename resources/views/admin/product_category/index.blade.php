@@ -74,6 +74,7 @@
                 </tr>
             @endforeach
         </tbody>
+        {!!$category->links('pagination::bootstrap-4')!!}
     </table>
     @endif
 </div>

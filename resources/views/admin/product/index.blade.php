@@ -18,7 +18,6 @@
             <div class="alert m-0">
                 <div class="alert alert-warning alert-icon">
                     <em class="icon ni ni-alert-circle"></em> Bạn chưa có thương hiệu nào. Vui lòng <a href="{{ route('brand.create') }}">tạo thương hiệu</a> trước.
-
                 </div>
             </div>
         </div>
@@ -75,15 +74,19 @@
                                     <label class="custom-control-label" for="pid{{$i}}"></label>
                                 </div>
                             </div>
-                            <div class="nk-tb-col tb-col-sm">
+                            <div class="nk-tb-col ">
                                 <span class="tb-product">
                                     <img src="{{URL::to('storage/'.$product->image)}}" alt="" class="thumb">
                                     <span class="title">{{$product->name}}</span>
                                 </span>
                             </div>
                         
-                            <div class="nk-tb-col">
-                                <span class="tb-lead">$ 99.49</span>
+                            <div class="nk-tb-col tb-col-sm">
+                                <span class="tb-lead">
+                                    @foreach($product->size as $price)
+                                        {{$price->product_price->price}}
+                                    @endforeach
+                                </span>
                             </div>
                             <div class="nk-tb-col">
                                 <span class="tb-sub">49</span>
@@ -107,6 +110,7 @@
                                                 <ul class="link-list-opt no-bdr">
                                                     <li><a href="{{route('product.edit',['id' => $product->id])}}"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>
                                                     <li><a href="{{route('product.show',['id' => $product->id])}}"><em class="icon ni ni-eye"></em><span>View Product</span></a></li>
+                                                    <li><a href="{{route('product.update_price',['id' => $product->id])}}"><em class="icon ni ni-invest"></em><span>Update Price</span></a></li>
                                                     <li><a href="{{route('product.delete',['id' => $product->id])}}"><em class="icon ni ni-trash"></em><span>Remove Product</span></a></li>
                                                 </ul>
                                             </div>
@@ -121,45 +125,8 @@
                 <div class="card-inner">
                     <div class="nk-block-between-md g-3">
                         <div class="g">
-                            <ul class="pagination justify-content-center justify-content-md-start">
-                                <li class="page-item"><a class="page-link" href="#"><em class="icon ni ni-chevrons-left"></em></a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><span class="page-link"><em class="icon ni ni-more-h"></em></span></li>
-                                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><em class="icon ni ni-chevrons-right"></em></a></li>
-                            </ul><!-- .pagination -->
+                            {!!$products->links('pagination::bootstrap-4')!!}
                         </div>
-                        <div class="g">
-                            <div class="pagination-goto d-flex justify-content-center justify-content-md-start gx-3">
-                                <div>Page</div>
-                                <div>
-                                    <select class="form-select form-select-sm select2-hidden-accessible" data-search="on" data-dropdown="xs center" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="page-1" data-select2-id="3">1</option>
-                                        <option value="page-2">2</option>
-                                        <option value="page-4">4</option>
-                                        <option value="page-5">5</option>
-                                        <option value="page-6">6</option>
-                                        <option value="page-7">7</option>
-                                        <option value="page-8">8</option>
-                                        <option value="page-9">9</option>
-                                        <option value="page-10">10</option>
-                                        <option value="page-11">11</option>
-                                        <option value="page-12">12</option>
-                                        <option value="page-13">13</option>
-                                        <option value="page-14">14</option>
-                                        <option value="page-15">15</option>
-                                        <option value="page-16">16</option>
-                                        <option value="page-17">17</option>
-                                        <option value="page-18">18</option>
-                                        <option value="page-19">19</option>
-                                        <option value="page-20">20</option>
-                                    </select>
-                                </div>
-                                <div>OF 102</div>
-                            </div>
-                        </div><!-- .pagination-goto -->
                     </div><!-- .nk-block-between -->
                 </div>
             </div>

@@ -7,9 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product;
-use App\Models\Size;
 use App\Models\ProductPrice;
-use Validator;
+use App\Models\Size;
 
 class ProductController extends Controller
 {
@@ -17,8 +16,9 @@ class ProductController extends Controller
         $user = Auth::guard('admin')->user();
         $brands= Brand::all();
         $categories=Category::all();
-        $products=Product::all();
-        return view('admin.product.index',compact('user','brands','categories','products'));
+        $products=Product::paginate(7);
+        $productprice=ProductPrice::all();
+        return view('admin.product.index',compact('user','brands','categories','products','productprice'));
     }
 
     public function create(){
@@ -29,10 +29,7 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
-        $user = Auth::guard('admin')->user();
-        $brands= Brand::all();
-        $categories=Category::all();
-
+        
         $data=$request->validate([
             'name' => 'required',
             'image' => 'required|image',
@@ -41,7 +38,13 @@ class ProductController extends Controller
             'discription' => 'required',
             'ingredient' => 'required',
             'direction' => 'required',
+            'size' => 'required',
+            'price' => 'required'
         ]);
+        
+        $size=$data['size'];
+        $price=$data['price'];
+
         $imagePath=$request->file('image')->store('images','public');
         $product = new Product();
         
@@ -54,7 +57,31 @@ class ProductController extends Controller
         $product->image = $imagePath;
         $product->save();
 
-        return redirect('admin/products/price')->with('success','Added');
+        $insertedId = $product->id;
+        // $temp = Product::find($insertedId);
+        for($i=0; $i < count($size);$i++){
+            $id=Size::where('name',$size[$i])->first();
+            if(!isset($id)){
+                $addsize=new Size();
+                $addsize->name = $size[$i];
+                $addsize->save();
+                $id=$addsize->id;
+            }
+
+        }
+        for ($i=0; $i <count($size);$i++) {
+            $id=Size::where('name',$size[$i])->first()->id;
+            $product_size[$i] = ([
+                'price' => $price[$i],
+                'product_id'=>$insertedId,
+                'date_applied' =>now(),
+                'size_id' =>$id,
+            ]);
+            // echo 'a';
+        }
+        $product->size()->attach($product_size);
+       
+        return redirect('admin/products')->with('success','Updated');
     }
 
     public function edit($id){
@@ -105,39 +132,55 @@ class ProductController extends Controller
         $categories=Category::all();
 
         $product=Product::find($id);
-        return view('admin.product.show',compact('user','brands','categories','product'));
+
+        $price=ProductPrice::where('product_id',$id)->get();
+
+        return view('admin.product.show',compact('user','brands','categories','product','price'));
     }
 
     public function delete($id){
+        $product=Product::find($id);
+        $product->size()->detach();
         Product::where('id',$id)->delete();
         return redirect('admin/products')->with('success','Deleted');
     }
 
-    public function price($id){
-        // if($request->ajax()){
-        //     $rules=array(
-        //         'size.*' =>'required',
-        //         'price.*'=>'required'
-        //     );
-        //     $error = Validator::make($request->all(),$rules);
-        //     if($error->fails()){
-        //         return response()->json([
-        //             'error' => $error->errors()->all()
-        //         ]);
-        //     }
+    public function update_price($id){
+        $user = Auth::guard('admin')->user();
+        $product=Product::find($id);
 
-        //     $size=$request->size;
-        //     $price=$request->price;
-
-        //     $prosize = new Size();
-        //     $proprice = new ProductPrice();
-
-        //     for($count=0;$count < count($size);$count++){
-        //         $prosize->name=$size[$count];
-        //         $proprice->sizeid=$size[$count];
-        //         $proprice->product_id=$product[$id];
-        //     }
-        // }
-
+        return view('admin.product.update-price',compact('user','product'));
     }
+
+    public function store_price($id,Request $request){
+        $data=$request->validate([
+            'size' => 'required',
+            'price' => 'required'
+        ]);
+        $size=$data['size'];
+        $price=$data['price'];
+        
+        for($i=0; $i < count($size);$i++){
+            $idprice=Size::where('name',$size[$i])->first();
+            if(!isset($idprice)){
+                $addsize=new Size();
+                $addsize->name = $size[$i];
+                $addsize->save();
+                $idprice=$addsize->id;
+            }
+        }
+        $product=Product::find($id);
+        for ($i=0; $i <count($size);$i++) {
+            $idprice=Size::where('name',$size[$i])->first()->id;
+            $product_size[$i] = ([
+                'price' => $price[$i],
+                'product_id'=>$product->id,
+                'date_applied' =>now(),
+                'size_id' =>$idprice,
+            ]);
+        }
+        $product->size()->sync($product_size);
+        return redirect('admin/products')->with('success','Updated');
+    }
+
 }

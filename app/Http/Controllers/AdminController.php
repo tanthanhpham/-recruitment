@@ -18,7 +18,7 @@ class AdminController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             if($user->is_active == 0) {
                 return view('admin.users.login');
-            }else return redirect()->route('admin.index');
+            }else return redirect()->route('product.index');
         }else {
             return view('admin.users.login');
         };
@@ -26,7 +26,7 @@ class AdminController extends Controller
 
     public function index(){
         $user = Auth::guard('admin')->user();
-        $userlist = Admin::all();
+        $userlist = Admin::paginate(3);
         return view('admin.users.index', compact('user'), compact('userlist'));
 
     }
@@ -103,5 +103,22 @@ class AdminController extends Controller
 
         return redirect('admin/')->with('success','Account locked/unlocked successfully');
     } 
+    function checkemail(Request $request)
+    {   
+        echo $request->get('emailcheck');
+        if($request->get('emailcheck'))
+        {
+            $emailcheck = $request->get('emailcheck');
+            $data = Admin::where('email', $emailcheck)->count();
+            if($data > 0)
+            {
+                echo 'not_unique';
+            }
+            else
+            {
+                echo 'unique';
+            }
+        }
+    }
 
 }

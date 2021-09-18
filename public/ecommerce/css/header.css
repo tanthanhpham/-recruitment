@@ -1,0 +1,10 @@
+.inner{
+    display: inline;
+}
+.thumb{
+    display: inline;
+    float: left;
+}
+#phone{
+    display: flex;
+}

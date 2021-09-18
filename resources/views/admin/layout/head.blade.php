@@ -5,7 +5,7 @@
     <meta name="description" content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="{{asset('dashlite/images/favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('logo-dark-1.png')}}">
     <!-- Page Title  -->
     <title>Buedue Store | Luôn luôn buedue, luôn luôn thấu hiểu</title>
     <!-- StyleSheets  -->

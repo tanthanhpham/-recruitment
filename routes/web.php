@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PageController;
+use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +17,6 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('admin/login', function () {
     return view('admin.users.login');
@@ -36,6 +34,7 @@ Route::middleware(['admin'])->group(function () {
     Route::post('admin/change_password/{id}', [AdminController::class,'change_password'])->name('admin.change_password');
     Route::get('admin/lock/{id}', [AdminController::class,'lock'])->name('admin.lock');
     Route::get('admin', [AdminController::class,'index'])->name('admin.index');
+    Route::get('admin/checkemail', [AdminController::class,'checkemail'])->name('admin.checkemail');
     // Product catagories
     Route::get('admin/product_categories', [ProductCategoryController::class,'index'])->name('product_category.index');
     Route::get('admin/product_categories/create', [ProductCategoryController::class,'create'])->name('product_category.create');
@@ -58,9 +57,32 @@ Route::middleware(['admin'])->group(function () {
     Route::post('admin/products/update/{id}', [ProductController::class,'update'])->name('product.update');
     Route::get('admin/products/delete/{id}', [ProductController::class,'delete'])->name('product.delete');
     Route::get('admin/products/show/{id}', [ProductController::class,'show'])->name('product.show');
-    // Add price
-    Route::post('admin/products/price', [ProductController::class,'price'])->name('product.price');
+    Route::get('admin/products/update_price/{id}', [ProductController::class,'update_price'])->name('product.update_price');
+    Route::post('admin/products/store_price/{id}', [ProductController::class,'store_price'])->name('product.store_price');
 
 });
 
+// Route::get('lkn',function(){
+//     $products=Product::all();
+//     foreach($products as $product)
+//     {
+//         echo $product->name;
+//         echo '<br>';
+//         foreach($product->size as $size){
+//             echo $size->name;
+//             echo $size->product_price->price;
+//             echo '<br>';
+//         }
+//         echo '<hr>';
+//     }
+// });
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/', [PageController::class,'index'])->name('guest.index');
+Route::get('/show/{id}', [PageController::class,'show'])->name('guest.show');
+Route::post('/getPrice', [PageController::class,'getPrice'])->name('guest.getPrice');
+Route::get('/getCategory/{id}', [PageController::class,'getCategory'])->name('guest.getCategory');
 

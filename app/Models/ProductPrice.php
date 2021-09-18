@@ -15,4 +15,5 @@ class ProductPrice extends Model
         'price',
         'date_applied'
     ];
+    // protected $primaryKey = ['size', 'product_id'];
 }

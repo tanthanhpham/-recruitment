@@ -82,9 +82,18 @@
                                     </div>
                                 </div><!-- .nk-tb-item -->
                             @endforeach
+                                
                         </div><!-- .nk-tb-list -->
                     </div>
+                    <div class="card-inner">
+                        <div class="nk-block-between-md g-3">
+                            <div class="g">
+                                    {!!$brands->links('pagination::bootstrap-4')!!}
+                            </div>
+                        </div><!-- .nk-block-between -->
+                    </div><!-- .card-inner -->
                 @endif
+
             </div>
         </div>
     </div>

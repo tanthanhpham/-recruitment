@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label class="form-label" for="">Add Price</label>
                     <table class="" id="dynamicAddRemove">
                         <tr>
@@ -100,6 +100,25 @@
 </div>
 
 @endsection
+
+
+@push('footer')
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+        var i = 0;
+        $("#dynamic-ar").click(function () {
+            ++i;
+            $("#dynamicAddRemove").append('<tr><td><input type="text" name="size[' + i +
+                ']" placeholder="Enter size" class="form-control" /></td> <td><input type="text" name="price['+ i +
+                ']" placeholder="Enter price" class="form-control" /></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>'
+                );
+        });
+        $(document).on('click', '.remove-input-field', function () {
+            $(this).parents('tr').remove();
+        });
+    </script>
+@endpush
 
 
 

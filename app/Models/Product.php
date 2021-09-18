@@ -20,4 +20,10 @@ class Product extends Model
         'direction',
         'discription'
     ];
+
+    public function size()
+    {
+        return $this->belongsToMany('App\Models\Size','product_price',
+            'product_id','size_id')->withPivot('price')->withTimestamps()->as('product_price');
+    }
 }

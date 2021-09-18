@@ -30,9 +30,14 @@
                         <div class="form-control-wrap ">
                             <select class="form-control form-select select2-hidden-accessible" id="p_category_id" name="p_category_id" data-placeholder="Select a option" required="" data-select2-id="fva-topics" tabindex="-1" aria-hidden="true">
                                 <option label="empty" value="" data-select2-id="4"></option>
-                                <option value="0">Root Category</option>
+                                @if(0 == $data->p_category_id) 
+                                    <option value="0" selected>Root Category</option>
+                                @else
+                                    <option value="0">Root Category</option>
+                                @endif  
                                 @foreach($category as $cate)
-                                <option value="{{$cate->id}}" @if($cate->id == $data->p_category_id) selected @endif>{{$cate->name}}</option>
+                                   
+                                    <option value="{{$cate->id}}" @if($cate->id == $data->p_category_id) selected @endif>{{$cate->name}}</option>
                                 @endforeach
                             </select>
                         </div>
