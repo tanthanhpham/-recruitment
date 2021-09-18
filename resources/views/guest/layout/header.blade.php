@@ -11,9 +11,9 @@
 					</a> <!-- brand-wrap.// -->
 				</div>
 				<div class="col-lg-6 col-sm-12">
-					<form action="#" class="search">
+					<form action="{{route('guest.search')}}" class="search" method="GET">
 						<div class="input-group w-100">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" class="form-control" id="keyword" name="keyword" placeholder="Tìm kiểu theo tên, nhãn hiệu, loại sản phẩm,...">
 							<div class="input-group-append">
 							<button class="btn btn-primary" type="submit">
 								<i class="fa fa-search"></i> Search
@@ -47,22 +47,47 @@
             <a class="nav-link" href="/">Home</a>
           </li>
         @foreach($categories as $i => $cate)
-          @if($i<=4)
-            <li class="nav-item dropdown">
-              <a class="nav-link" href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a>
-            </li>
-          @endif
-        @endforeach
-		@if($categories->count() > 4)
-			<li class="nav-item dropdown">
-			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Thêm</a>
-			<div class="dropdown-menu">
-				@foreach($categories as $i => $cate)
-					@if($i>4)
+			@if($cate->p_category_id==0)
+				<li class="nav-item dropdown">
+					@php
+						$flag = 0
+					@endphp
+				
+					@foreach($categories as $cate3)
+						@if($cate3->p_category_id==$cate->id)
+							@php
+								$flag = 1
+							@endphp
+						@endif
+					@endforeach
+					@if($flag==1)
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a>
+					
+					@else
 						<a class="nav-link" href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a>
 					@endif
-				@endforeach
-			</div>
+					<div class="dropdown-menu">
+						<a class="nav-link" href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a>
+					@foreach($categories as $cate2)
+						@if($cate2->p_category_id==$cate->id)
+							<a class="nav-link" href="{{route('guest.getCategory',['id' => $cate2->id] )}}">{{$cate2->name}}</a>
+						@endif
+					@endforeach
+					</div>
+				</li>
+			@endif
+        @endforeach
+
+		@if($categories->count() > 4)
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Thêm</a>
+				<div class="dropdown-menu">
+					@foreach($categories as $i => $cate)
+						@if($i>4)
+							<a class="nav-link" href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a>
+						@endif
+					@endforeach
+				</div>
 			</li>
 		@endif
       </ul>

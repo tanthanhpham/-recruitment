@@ -59,7 +59,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('admin/products/show/{id}', [ProductController::class,'show'])->name('product.show');
     Route::get('admin/products/update_price/{id}', [ProductController::class,'update_price'])->name('product.update_price');
     Route::post('admin/products/store_price/{id}', [ProductController::class,'store_price'])->name('product.store_price');
-
 });
 
 // Route::get('lkn',function(){
@@ -85,4 +84,4 @@ Route::get('/', [PageController::class,'index'])->name('guest.index');
 Route::get('/show/{id}', [PageController::class,'show'])->name('guest.show');
 Route::post('/getPrice', [PageController::class,'getPrice'])->name('guest.getPrice');
 Route::get('/getCategory/{id}', [PageController::class,'getCategory'])->name('guest.getCategory');
-
+Route::get('/search', [PageController::class,'search'])->name('guest.search');

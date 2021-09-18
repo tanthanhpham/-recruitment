@@ -16,7 +16,7 @@
 </section>
 <header class="section-heading">
         <a href="#" class="btn btn-outline-primary float-right">See all</a>
-        <h3 class="section-title">Popular products</h3>
+        <h3 class="section-title">Danh sách sản phẩm</h3>
     </header><!-- sect-heading -->
 <div class="row">
     @foreach($products as $product)
@@ -28,7 +28,6 @@
                     @foreach($product->size as $i => $size)
 						@if($i==0)
                             <div class="price mt-1">{{$size->product_price->price}} VNĐ</div> <!-- price-wrap.// -->
-							
 						@endif
 					@endforeach
                   
