@@ -6,7 +6,10 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TransactionController;
 use App\Models\Product;
+use App\Models\Transaction;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,6 +62,10 @@ Route::middleware(['admin'])->group(function () {
     Route::get('admin/products/show/{id}', [ProductController::class,'show'])->name('product.show');
     Route::get('admin/products/update_price/{id}', [ProductController::class,'update_price'])->name('product.update_price');
     Route::post('admin/products/store_price/{id}', [ProductController::class,'store_price'])->name('product.store_price');
+    //Transaction
+    Route::get('admin/transactions/', [TransactionController::class,'index'])->name('transaction.index');
+    Route::get('admin/transactions/create', [TransactionController::class,'create'])->name('transaction.create');
+
 });
 
 // Route::get('lkn',function(){
@@ -83,5 +90,10 @@ Route::get('/', function () {
 Route::get('/', [PageController::class,'index'])->name('guest.index');
 Route::get('/show/{id}', [PageController::class,'show'])->name('guest.show');
 Route::post('/getPrice', [PageController::class,'getPrice'])->name('guest.getPrice');
+Route::post('/getIdPrice', [PageController::class,'getIdPrice'])->name('guest.getIdPrice');
 Route::get('/getCategory/{id}', [PageController::class,'getCategory'])->name('guest.getCategory');
 Route::get('/search', [PageController::class,'search'])->name('guest.search');
+Route::get('/addCart/{id}', [PageController::class,'addCart'])->name('guest.addCart');
+Route::get('/cart', [PageController::class,'cart'])->name('guest.cart');
+Route::get('/showCart', [PageController::class,'showCart'])->name('guest.showCart');
+Route::get('/deleteCart/{id}', [PageController::class,'deleteCart'])->name('guest.deleteCart');

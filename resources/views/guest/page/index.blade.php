@@ -30,7 +30,10 @@
                             <div class="price mt-1">{{$size->product_price->price}} VNĐ</div> <!-- price-wrap.// -->
 						@endif
 					@endforeach
-                  
+                    @php 
+                        $id=$product->id;
+                    @endphp
+                  <button class="btn addToCart" onclick="addToCart({{$id}})">Add to Cart</button>
                 </figcaption>
             </div>
         </div> <!-- col.// -->
@@ -44,3 +47,18 @@
     </div><!-- .nk-block-between -->
 </div>
 @endsection
+
+@push('footer')
+<script>
+    function addToCart(id){
+        $.ajax({
+            url: "/addCart/" +id,
+            type:"GET",
+            success: function(result){
+                console.log(result);
+                $('#cart').html(result);
+            }
+        });
+    };
+</script>
+@endpush

@@ -69,7 +69,7 @@
                     <div class="form-group">
                         <label class="form-label" for="discription">Discription</label>
                         <div class="form-control-wrap">
-                            <textarea class="form-control form-control-sm" id="discription" name="discription" placeholder="Write your discription" required=""></textarea>
+                            <textarea class="form-control form-control-sm ckeditor" id="discription" name="discription" placeholder="Write your discription" required=""></textarea>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                     <div class="form-group">
                         <label class="form-label" for="ingredient">Ingredient</label>
                         <div class="form-control-wrap">
-                            <textarea class="form-control form-control-sm" id="ingredient" name="ingredient" placeholder="Write your ingredient" required=""></textarea>
+                            <textarea class="form-control form-control-sm ckeditor" id="ingredient" name="ingredient" placeholder="Write your ingredient" required=""></textarea>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                     <div class="form-group">
                         <label class="form-label" for="direction">Direction</label>
                         <div class="form-control-wrap">
-                            <textarea class="form-control form-control-sm" id="direction" name="direction" placeholder="Write your direction" required=""></textarea>
+                            <textarea class="form-control form-control-sm ckeditor" id="direction" name="direction" placeholder="Write your direction" required=""></textarea>
                         </div>
                     </div>
                 </div>

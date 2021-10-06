@@ -7,7 +7,6 @@
 @if($products->count()==0)
     <h5 class="section-title">Hiện tại không tồn tại sản phẩm loại này</h5>
 @else
-    <h5 class="section-title">Các sản phẩm {{$category->name}}</h5>
     <div class="row">
         @foreach($products as $product)
             <div class="col-md-3">

@@ -19,13 +19,15 @@
 					@foreach($product->size as $i => $size)
 						@if($i==0)
 							<var class="price h4" id="price">{{$size->product_price->price}}</var> VNĐ
+							<input type="hidden" id="getPrice" value="{{$size->product_price->price}}">
+							<input type="hidden" id="getIdPrice" value="{{$size->product_price->id}}">
 						@endif
 						
 					@endforeach
 					
 				</div> 
 
-				<p>{{$product->discription}}</p>
+				{!!$product->discription!!}
 
 				<dl class="row">
 					<dt class="col-sm-3">Loại</dt>
@@ -73,15 +75,17 @@
 							@endforeach
 							</label>
 						</div>
-					</div> <!-- col.// -->
+					</div> <!-- col.// --> 
 				</div> <!-- row.// -->
 				{{csrf_field()}}
-				<a href="#" class="btn  btn-primary"> Buy now </a>
-				<a href="#" class="btn  btn-outline-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+			
+				<a href="{{route('guest.addCart',['id'=>$product->id])}}" class="btn  btn-primary"> Buy now </a>
+				<button class="btn btn-outline-primary addToCart"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </button>
 			</article> <!-- product-info-aside .// -->
 		</main> <!-- col.// -->
 	</div> <!-- row.// -->
 </div>
+
 @endsection
 
 @push('footer')
@@ -97,12 +101,54 @@
 				data:  {_token:_token, size:size, id:pro_id },
 				success: function(result){
 					$('#price').html(result);
+					$('#getPrice').attr('value',result);
 				}
 			});
-
 		});
-
 	});
-
 </script>
+
+<script>
+	$(document).ready(function(){
+		$('input[name=size]').change(function(){
+			var size=$('input[name=size]:checked').val();
+			var pro_id=$('#pro_id').val();
+			var _token=$('input[name=_token]').val();
+			$.ajax({
+				url: "{{ route('guest.getIdPrice') }}",
+				type:"POST",
+				data:  {_token:_token, size:size, id:pro_id },
+				success: function(result){
+					$('#getIdPrice').attr('value',result);
+				}
+			});
+		});
+	});
+</script>
+
+<script>
+	$(document).ready(function(){
+		$('.addToCart').click(function(){
+			var pro_id=$('#pro_id').val();
+			var id =$('#getIdPrice').val();
+			var size=$('input[name=size]:checked').val();
+			var price=$('#getPrice').val();
+			console.log(size);
+			console.log(price);
+			$.ajax({
+				url: "/addCart/" +pro_id,
+				type:"GET",
+				data:  { size:size, price:price, id:id },
+				success: function(result){
+					alertify.notify('Thêm sản phẩm thành công','primary');
+					$('#cart').html(result);
+				}
+			});
+		});
+	});
+</script>
+
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
 @endpush

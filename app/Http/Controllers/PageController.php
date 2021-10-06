@@ -5,6 +5,9 @@ use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Cart;
+
+use Session;
 
 class PageController extends Controller
 {
@@ -30,6 +33,15 @@ class PageController extends Controller
         }
     }
 
+    public function getIdPrice(Request $request){
+        $id=$request->get('id');
+        $product=Product::find($id);
+        foreach($product->size as $size){
+            if($size->name == $request->size)
+                echo $size->product_price->id;
+        }
+    }
+
     public function getCategory($id){
         $products=Product::where('category_id',$id)->paginate(8);
         $category=Category::find($id);
@@ -48,6 +60,41 @@ class PageController extends Controller
         ->where('product_category.name','like','%'.$keyword.'%')->orWhere('product.name','like','%'.$keyword.'%')
         ->paginate(8);
        
-        return view('guest.page.index',compact('products','categories'));
+        return view('guest.page.search',compact('products','categories'));
+    }
+
+    public function cart(){
+        return view('guest.page.cart');
+    }
+    public function addCart(Request $request,$id){
+        $product =Product::find($id);
+       
+        if($product!=null){
+            $oldCart= session('cart') ? session('cart') :null;
+            $newCart= new Cart($oldCart);
+            $newCart->AddCart($product,$request->id,$id,$request->price,$request->size);
+
+            $request->session()->put('cart',$newCart);
+        }
+        // dd(session('cart'));
+        return redirect()->route('guest.cart');
+    }
+
+    public function showCart(){
+        $categories=Category::all();
+        return view('guest.page.showCart',compact('categories'));
+    }
+
+    public function deleteCart(Request $req, $id){
+        $categories=Category::all();
+        $oldCart= session('cart') ? session('cart') :null;
+        $newCart= new Cart($oldCart);
+        $newCart->DeleteItemCart($id);
+        if(Count($newCart->products) > 0){
+            $req->session()->put('cart',$newCart);
+        }else{
+            $req->session()->forget('cart');
+        }
+        return view('guest.page.deleteCart',compact('categories'));
     }
 }

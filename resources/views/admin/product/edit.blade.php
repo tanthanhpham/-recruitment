@@ -58,27 +58,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label class="form-label" for="discription">Discription</label>
                         <div class="form-control-wrap">
-                            <textarea class="form-control form-control-sm" id="discription" name="discription" placeholder="Write your discription" required="">{{$product->discription}}</textarea>
+                            <textarea class="form-control form-control-sm ckeditor" id="discription" name="discription" placeholder="Write your discription" required="">{{$product->discription}}</textarea>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label class="form-label" for="ingredient">Ingredient</label>
                         <div class="form-control-wrap">
-                            <textarea class="form-control form-control-sm" id="ingredient" name="ingredient" placeholder="Write your ingredient" required="">{{$product->ingredient}}</textarea>
+                            <textarea class="form-control form-control-sm ckeditor" id="ingredient" name="ingredient" placeholder="Write your ingredient" required="">{{$product->ingredient}}</textarea>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label class="form-label" for="direction">Direction</label>
                         <div class="form-control-wrap">
-                            <textarea class="form-control form-control-sm" id="direction" name="direction" placeholder="Write your direction" required="">{{$product->direction}}</textarea>
+                            <textarea class="form-control form-control-sm ckeditor" id="direction" name="direction" placeholder="Write your direction" required="">{{$product->direction}}</textarea>
                         </div>
                     </div>
                 </div>

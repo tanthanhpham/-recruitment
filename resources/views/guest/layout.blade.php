@@ -22,6 +22,9 @@
 <!-- ========================= FOOTER ========================= -->
     @include('guest.layout.footer')
 <!-- ========================= FOOTER END // ========================= -->
+    <script src="{{asset('ecommerce/js/script.js')}}" type="text/javascript"></script>
+    <script src="{{asset('ecommerce/js/jquery-2.0.0.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('ecommerce/js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
     @stack('footer')
 </body>
 </html>

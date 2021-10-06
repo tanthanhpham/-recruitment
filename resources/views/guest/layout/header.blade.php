@@ -1,4 +1,3 @@
-
 <header class="section-header">
 	<section class="header-main border-bottom">
 		<div class="container">
@@ -26,7 +25,7 @@
 					<div class="widgets-wrap float-md-right">
 						<div class="widget-header  mr-3">
 							<a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
-							<span class="badge badge-pill badge-danger notify">0</span>
+							<span class="badge badge-pill badge-danger notify" id="cart">@if(Session::has('cart')!=null){{Session::get('cart')->totalQuanty}} @else 0 @endif</span>
 						</div>
 					</div> <!-- widgets-wrap.// -->
 				</div> <!-- col.// -->
@@ -46,13 +45,22 @@
         <li class="nav-item dropdown">
             <a class="nav-link" href="/">Home</a>
           </li>
+		@php
+			$count=0;
+		@endphp
         @foreach($categories as $i => $cate)
+			@if($cate->p_category_id==0)
+				@php
+					$count=$count+1;
+				@endphp
+			@endif
+		
+		@if($count < 6)
 			@if($cate->p_category_id==0)
 				<li class="nav-item dropdown">
 					@php
-						$flag = 0
+						$flag = 0;
 					@endphp
-				
 					@foreach($categories as $cate3)
 						@if($cate3->p_category_id==$cate->id)
 							@php
@@ -76,14 +84,23 @@
 					</div>
 				</li>
 			@endif
+		@endif
         @endforeach
 
-		@if($categories->count() > 4)
+		@if($count >= 6)
+		@php
+			$check=0;
+		@endphp
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Thêm</a>
 				<div class="dropdown-menu">
 					@foreach($categories as $i => $cate)
-						@if($i>4)
+						@if($cate->p_category_id==0)
+							@php
+								$check=$check+1;
+							@endphp
+						@endif
+						@if($check>=6 && $cate->p_category_id==0)
 							<a class="nav-link" href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a>
 						@endif
 					@endforeach
@@ -94,3 +111,4 @@
     </div> <!-- collapse .// -->
   </div> <!-- container .// -->
 </nav>
+

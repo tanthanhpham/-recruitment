@@ -23,7 +23,7 @@
                         <h4 class="product-price text-primary">$78.00 <small class="text-muted fs-14px">$98.00</small></h4>
                         <h2 class="product-title">{{$product->name}}</h2>
                         <div class="product-excrept text-soft">
-                            <p class="lead">{{$product->discription}}</p>
+                            <p class="lead">{!!$product->discription!!}</p>
                         </div>
                         <div class="product-meta">
                             <ul class="d-flex g-3 gx-5">
@@ -55,8 +55,8 @@
                                 @foreach($product->size as $size)
                                 <li>
                                     <div class="custom-control custom-radio custom-control-pro no-control checked">
-                                        <input type="radio" class="custom-control-input" name="sizeCheck" id="sizeCheck1">
-                                        <label class="custom-control-label" for="sizeCheck1">{{$size->name}}</label>
+                                        <input type="radio" class="custom-control-input" name="sizeCheck">
+                                        <label class="custom-control-label">{{$size->name}}</label>
                                     </div>
                                 </li>
                                 @endforeach
@@ -64,11 +64,11 @@
                         </div><!-- .product-meta -->
                         <div class="product-meta">
                             <h6 class="title">Ingredient</h6>
-                            <p class="lead">{{$product->ingredient}}</p>
+                            <p class="lead">{!!$product->ingredient!!}</p>
                         </div><!-- .product-meta -->
                         <div class="product-meta">
                             <h6 class="title">Direction</h6>
-                            <p class="lead">{{$product->direction}}</p>
+                            <p class="lead">{!!$product->direction!!}</p>
                         </div><!-- .product-meta -->
                     </div><!-- .product-info -->
                 </div><!-- .col -->
