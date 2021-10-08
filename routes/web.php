@@ -97,3 +97,4 @@ Route::get('/addCart/{id}', [PageController::class,'addCart'])->name('guest.addC
 Route::get('/cart', [PageController::class,'cart'])->name('guest.cart');
 Route::get('/showCart', [PageController::class,'showCart'])->name('guest.showCart');
 Route::get('/deleteCart/{id}', [PageController::class,'deleteCart'])->name('guest.deleteCart');
+Route::get('/updateItemCart/{id}', [PageController::class,'updateItemCart'])->name('guest.updateItemCart');

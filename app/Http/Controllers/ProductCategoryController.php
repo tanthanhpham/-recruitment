@@ -9,8 +9,9 @@ class ProductCategoryController extends Controller
 {
     public function index(){
         $user = Auth::guard('admin')->user();
+        $categories = Category::all();
         $category = Category::paginate(5);
-        return view('admin.product_category.index', compact('user'),compact('category'));
+        return view('admin.product_category.index', compact('user'),compact('category','categories'),);
         
         
     }

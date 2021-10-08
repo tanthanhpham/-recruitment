@@ -97,4 +97,15 @@ class PageController extends Controller
         }
         return view('guest.page.deleteCart',compact('categories'));
     }
+
+    public function updateItemCart(Request $req, $id){
+        $categories=Category::all();
+        $oldCart= session('cart') ? session('cart') :null;
+        $newCart= new Cart($oldCart);
+        $newCart->UpdateItemCart($id,$req->number,$req->price);
+       
+        $req->session()->put('cart',$newCart);
+
+        return view('guest.page.deleteCart');
+    }
 }

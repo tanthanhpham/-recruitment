@@ -54,7 +54,7 @@
                             @if($cate->p_category_id==0)
                                 <span class="amount">Root</span>
                             @else
-                                @foreach($category as $cat)
+                                @foreach($categories as $cat)
                                     <span class="amount">@if($cate->p_category_id == $cat->id) {{$cat->name}} @endif</span>
                                 @endforeach
                             @endif
