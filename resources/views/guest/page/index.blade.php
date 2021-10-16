@@ -1,51 +1,137 @@
-@extends('guest.page.layout', [
-    'title' => ( $title ?? 'Danh sách sản phẩm' )
-])
+@extends('guest.layout')
 
-@section('content')
-<section class="section-main">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <article class="banner-wrap">
-                    <img src="{{asset('1.png')}}" class="w-100 rounded">
-                </article>
-            </div> <!-- col.// -->
-        </div> <!-- row.// -->
-    </div> <!-- container //  -->
-</section>
-<header class="section-heading">
-        <a href="#" class="btn btn-outline-primary float-right">See all</a>
-        <h3 class="section-title">Danh sách sản phẩm</h3>
-    </header><!-- sect-heading -->
-<div class="row">
-    @foreach($products as $product)
-        <div class="col-md-3">
-            <div href="#" class="card card-product-grid">
-                <a href="{{route('guest.show',['id' => $product->id])}}" class="img-wrap"> <img src="{{asset('storage/'.$product->image)}}"> </a>
-                <figcaption class="info-wrap">
-                    <a href="{{route('guest.show',['id' => $product->id])}}" class="title">{{$product->name}}</a>
-                    @foreach($product->size as $i => $size)
-						@if($i==0)
-                            <div class="price mt-1">{{$size->product_price->price}} VNĐ</div> <!-- price-wrap.// -->
-						@endif
-					@endforeach
-                    @php 
-                        $id=$product->id;
-                    @endphp
-                  <button class="btn addToCart" onclick="addToCart({{$id}})">Add to Cart</button>
-                </figcaption>
+
+@section('main')
+    <!-- Shop Section Begin -->
+    <section class="shop spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="shop__sidebar">
+                        <div class="shop__sidebar__search">
+                            <form action="{{route('guest.search')}}" method="GET">
+                                <input type="text" name="keyword" placeholder="Tìm kiếm...">
+                                <button type="submit"><span class="icon_search"></span></button>
+                            </form>
+                        </div>
+                        <div class="shop__sidebar__accordion">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseThree">Lọc theo giá</a>
+                                    </div>
+                                    <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__search ">
+                                                <form action="{{route('guest.search')}}" method="GET" class="d-flex flex-row">
+                                                    <div class="col-md-6 m p-0">
+                                                        <input type="text" name="min-price" placeholder="Giá thấp nhất">
+                                                    </div>
+                                                    <div class="col-md-6 m-0 p-0">
+                                                        <input type="text" name="max-price" placeholder="Giá cao nhất">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseOne">Loại sản phẩm</a>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__categories">
+                                                <ul class="nice-scroll">
+                                                    @foreach($categories as $cate)
+                                                        <li><a href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a></li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseTwo">Thương hiệu</a>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__brand">
+                                                <ul>
+                                                    @foreach($brands as $brand)
+                                                        <li><a href="#">{{$brand->name}}</a></li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="shop__product__option">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="shop__product__option__left">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="shop__product__option__right">
+                                    <p>Sắp xếp theo: </p>
+                                    <select>
+                                        <option value="">Giá từ cao đến thấp</option>
+                                        <option value="">Giá từ thấp đến cao</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach($products as $product)
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{{asset('storage/'.$product->image)}}">
+                                      
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6>{{$product->name}}</h6>
+                                        <a href="{{route('guest.show',['id' => $product->id])}}" class="add-cart">Xem chi tiết</a>
+                                        @foreach($product->size as $i => $size)
+                                            @if($i==0)
+                                                <h5>{{$size->product_price->price}} VNĐ</h5>
+                                            @endif
+                                        @endforeach
+                                        
+                                        <div class="product__color__select">
+                                            @foreach($product->size as $i => $size)
+                                                
+                                                    {{$size->name}}
+                                                
+                                            @endforeach
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="">
+                                {!!$products->links('pagination::bootstrap-4')!!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div> <!-- col.// -->
-    @endforeach
-</div>
-<div class="card-inner">
-    <div class="nk-block-between-md g-3">
-        <div class="g">
-            {!!$products->links('pagination::bootstrap-4')!!}
         </div>
-    </div><!-- .nk-block-between -->
-</div>
+    </section>
+    <!-- Shop Section End -->
 @endsection
 
 @push('footer')

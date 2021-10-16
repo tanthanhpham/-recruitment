@@ -38,8 +38,9 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="phone">+84</span>
                                     </div>
-                                    <input type="text" class="form-control" name="phone" required="">
+                                    <input type="text" class="form-control" id="phonenumber" name="phone" required="">
                                 </div>
+                                <span id="error_phone"></span>
                             </div>
                         </div>
                     </div>
@@ -109,43 +110,60 @@
     <script>
 
     $(document).ready(function(){
-        $('#email').blur(function(){
+        $('#email').change(function(){
             var error_email = '';
             var email = $('#email').val();
             var _token = $('input[name="_token"]').val();
             var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            if(!filter.test(email))
-            {    
+            if(!filter.test(email)){    
                 $('#email').addClass('has-error');
-                $('#error_email').html('<label class="text-danger">Invalid Email</label>');
+                $('#error_email').html('<label class="text-danger">Invalid email</label>');
                 $('#register').attr('disabled', 'disabled');
-            }
-            else
-            {
+            }else{
                 $.ajax({
-                    url:"{{ route('admin.checkemail') }}",
-                    method:"POST",
-                    data:{emailcheck:email, _token:_token},
-                    success:function(result)
-                    {
-                        if(result == 'unique')
-                        {
-                            $('#error_email').html('<label class="text-success">Email Available</label>');
+                    url:"{{ route('admin.checkEmail') }}",
+                    method: "POST",
+                    data: {email:email, _token:_token},
+                    success:function(result){
+                        if(result=="exist"){
+                            $('#email').addClass('has-error');
+                            $('#error_email').html('<label class="text-danger">Email already exists</label>');
+                            $('#register').attr('disabled', 'disabled');
+                        }else{
+                            $('#error_email').html('<label class="text-success">Email available</label>');
                             $('#email').removeClass('has-error');
                             $('#register').attr('disabled', false);
                         }
-                        else
-                        {
-                            $('#error_email').html('<label class="text-danger">Email not Available</label>');
-                            $('#email').addClass('has-error');
-                            $('#register').attr('disabled', 'disabled');
-                        }
                     }
                 })
+               
             }
         });
     });
+    $(document).ready(function(){
+        $('#phonenumber').change(function(){
+            var phone = $('#phonenumber').val();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                    url:"{{ route('admin.checkPhone') }}",
+                    method: "POST",
+                    data: {phone:phone, _token:_token},
+                    success:function(result){
+                        console.log(result);
+                        if(result=="exist"){
+                            $('#phonenumber').addClass('has-error');
+                            $('#error_phone').html('<label class="text-danger">Phone number already exists</label>');
+                            $('#register').attr('disabled', 'disabled');
+                        }else{
+                            $('#error_phone').html('<label class="text-success">Phone number available</label>');
+                            $('#phonenumber').removeClass('has-error');
+                            $('#register').attr('disabled', false);
+                        }
+                    }
+                })
+        });
+    });
+    
 </script>
 
-
-    @endpush
+@enpush

@@ -21,8 +21,8 @@ class Transaction extends Model
     ];
     public function orders()
     {
-        return $this->belongsToMany('App\Models\Product','orders',
-            'trans_id','product_id')->withPivot('number')->withTimestamps()->as('orders');
+        return $this->belongsToMany('App\Models\ProductPrice','orders',
+            'trans_id','product_price_id')->withPivot('id','number')->withTimestamps()->as('orders');
     }
 
 }

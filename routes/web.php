@@ -37,7 +37,8 @@ Route::middleware(['admin'])->group(function () {
     Route::post('admin/change_password/{id}', [AdminController::class,'change_password'])->name('admin.change_password');
     Route::get('admin/lock/{id}', [AdminController::class,'lock'])->name('admin.lock');
     Route::get('admin', [AdminController::class,'index'])->name('admin.index');
-    Route::get('admin/checkemail', [AdminController::class,'checkemail'])->name('admin.checkemail');
+    Route::post('admin/checkEmail', [AdminController::class,'checkEmail'])->name('admin.checkEmail');
+    Route::post('admin/checkPhone', [AdminController::class,'checkPhone'])->name('admin.checkPhone');
     // Product catagories
     Route::get('admin/product_categories', [ProductCategoryController::class,'index'])->name('product_category.index');
     Route::get('admin/product_categories/create', [ProductCategoryController::class,'create'])->name('product_category.create');
@@ -64,7 +65,7 @@ Route::middleware(['admin'])->group(function () {
     Route::post('admin/products/store_price/{id}', [ProductController::class,'store_price'])->name('product.store_price');
     //Transaction
     Route::get('admin/transactions/', [TransactionController::class,'index'])->name('transaction.index');
-    Route::get('admin/transactions/create', [TransactionController::class,'create'])->name('transaction.create');
+    Route::get('admin/transactions/show/{id}', [TransactionController::class,'show'])->name('transaction.show');
 
 });
 
@@ -98,3 +99,7 @@ Route::get('/cart', [PageController::class,'cart'])->name('guest.cart');
 Route::get('/showCart', [PageController::class,'showCart'])->name('guest.showCart');
 Route::get('/deleteCart/{id}', [PageController::class,'deleteCart'])->name('guest.deleteCart');
 Route::get('/updateItemCart/{id}', [PageController::class,'updateItemCart'])->name('guest.updateItemCart');
+Route::get('/checkout', [PageController::class,'checkout'])->name('guest.checkout');
+Route::post('/checkout/store/', [TransactionController::class,'store'])->name('transaction.store');
+
+

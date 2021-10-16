@@ -12,9 +12,10 @@ use Session;
 class PageController extends Controller
 {
     public function index(){
-        $products=Product::paginate(8);
+        $products=Product::paginate(12);
         $categories=Category::all();
-        return view('guest.page.index',compact('products','categories'));
+        $brands=Brand::all();
+        return view('guest.page.index',compact('products','categories','brands'));
     }
 
     public function show($id){
@@ -46,21 +47,21 @@ class PageController extends Controller
         $products=Product::where('category_id',$id)->paginate(8);
         $category=Category::find($id);
         $categories=Category::all();
-        return view('guest.page.search',compact('products','categories','category'));
+        $brands= Brand::all();
+        return view('guest.page.index',compact('products','categories','category','brands'));
     }
 
     public function search(Request $request){
         $keyword=$request->get('keyword');
+        $brands= Brand::all();
         $categories=Category::all();
-
-        // $products=Product::where('name','like','%'.$keyword.'%')->get();
 
         $products = Product::select('product.*')
         ->join('product_category', 'product_category.id', '=', 'product.category_id')
         ->where('product_category.name','like','%'.$keyword.'%')->orWhere('product.name','like','%'.$keyword.'%')
         ->paginate(8);
        
-        return view('guest.page.search',compact('products','categories'));
+        return view('guest.page.index',compact('products','categories','brands'));
     }
 
     public function cart(){
@@ -107,5 +108,10 @@ class PageController extends Controller
         $req->session()->put('cart',$newCart);
 
         return view('guest.page.deleteCart');
+    }
+
+    public function checkout(){
+
+        return view('guest.page.checkout');
     }
 }

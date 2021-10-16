@@ -41,6 +41,12 @@
                             <span class="nk-menu-text">Product</span>
                         </a>
                     </li><!-- .nk-menu-item -->
+                    <li class="nk-menu-item has-sub">
+                        <a href="{{route('transaction.index')}}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-tranx"></em></span>
+                            <span class="nk-menu-text">Transaction</span>
+                        </a>
+                    </li><!-- .nk-menu-item -->
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-sidebar-menu -->
         </div><!-- .nk-sidebar-content -->

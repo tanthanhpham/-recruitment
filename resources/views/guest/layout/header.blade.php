@@ -1,114 +1,92 @@
-<header class="section-header">
-	<section class="header-main border-bottom">
-		<div class="container">
-			<div class="row align-items-center">
-        <div class="col-lg-1 col-2">
-				</div>
-				<div class="col-lg-1 col-2">
-					<a href="http://bootstrap-ecommerce.com" class="brand-wrap">
-						<img class="logo" src="{{asset('/logo-dark-1.png')}}" >
-					</a> <!-- brand-wrap.// -->
-				</div>
-				<div class="col-lg-6 col-sm-12">
-					<form action="{{route('guest.search')}}" class="search" method="GET">
-						<div class="input-group w-100">
-							<input type="text" class="form-control" id="keyword" name="keyword" placeholder="Tìm kiểu theo tên, nhãn hiệu, loại sản phẩm,...">
-							<div class="input-group-append">
-							<button class="btn btn-primary" type="submit">
-								<i class="fa fa-search"></i> Search
-							</button>
-							</div>
-						</div>
-					</form> <!-- search-wrap .end// -->
-				</div> <!-- col.// -->
-				<div class="col-lg-4 col-sm-6 col-12">
-					<div class="widgets-wrap float-md-right">
-						<div class="widget-header  mr-3">
-							<a href="{{route('guest.showCart')}}" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
-							<span class="badge badge-pill badge-danger notify" id="cart">@if(Session::has('cart')!=null){{Session::get('cart')->totalQuanty}} @else 0 @endif</span>
-						</div>
-					</div> <!-- widgets-wrap.// -->
-				</div> <!-- col.// -->
-			</div> <!-- row.// -->
-		</div> <!-- container.// -->
-	</section> <!-- header-main .// -->
-</header> <!-- section-header.// -->
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
 
-<nav class="navbar navbar-main navbar-expand-lg navbar-light border-bottom">
-  <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<!-- <div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__option">
+        <div class="offcanvas__links">
+            <a href="#">Sign in</a>
+            <a href="#">FAQs</a>
+        </div>
+        <div class="offcanvas__top__hover">
+            <span>Usd <i class="arrow_carrot-down"></i></span>
+            <ul>
+                <li>USD</li>
+                <li>EUR</li>
+                <li>USD</li>
+            </ul>
+        </div>
+    </div>
+    <div class="offcanvas__nav__option">
+        <a href="#" class="search-switch"><img src="{{asset('shop/img/icon/search.png')}}" alt=""></a>
+        <a href="#"><img src="{{asset('shop/img/icon/heart.png')}}" alt=""></a>
+        <a href="#"><img src="{{asset('shop/img/icon/cart.png')}}" alt=""> <span></span></a>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+    <div class="offcanvas__text">
+        <p>Free shipping, 30-day return or refund guarantee.</p>
+    </div>
+</div> -->
+<!-- Offcanvas Menu End -->
 
-    <div class="collapse navbar-collapse" id="main_nav">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-		@php
-			$count=0;
-		@endphp
-        @foreach($categories as $i => $cate)
-			@if($cate->p_category_id==0)
-				@php
-					$count=$count+1;
-				@endphp
-			@endif
-		
-		@if($count < 6)
-			@if($cate->p_category_id==0)
-				<li class="nav-item dropdown">
-					@php
-						$flag = 0;
-					@endphp
-					@foreach($categories as $cate3)
-						@if($cate3->p_category_id==$cate->id)
-							@php
-								$flag = 1
-							@endphp
-						@endif
-					@endforeach
-					@if($flag==1)
-						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a>
-					
-					@else
-						<a class="nav-link" href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a>
-					@endif
-					<div class="dropdown-menu">
-						<a class="nav-link" href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a>
-					@foreach($categories as $cate2)
-						@if($cate2->p_category_id==$cate->id)
-							<a class="nav-link" href="{{route('guest.getCategory',['id' => $cate2->id] )}}">{{$cate2->name}}</a>
-						@endif
-					@endforeach
-					</div>
-				</li>
-			@endif
-		@endif
-        @endforeach
-
-		@if($count >= 6)
-		@php
-			$check=0;
-		@endphp
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> Thêm</a>
-				<div class="dropdown-menu">
-					@foreach($categories as $i => $cate)
-						@if($cate->p_category_id==0)
-							@php
-								$check=$check+1;
-							@endphp
-						@endif
-						@if($check>=6 && $cate->p_category_id==0)
-							<a class="nav-link" href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a>
-						@endif
-					@endforeach
-				</div>
-			</li>
-		@endif
-      </ul>
-    </div> <!-- collapse .// -->
-  </div> <!-- container .// -->
-</nav>
-
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7">
+                    <div class="header__top__left">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="header__top__right">
+                        <div class="header__top__links">
+                            <!-- <a href="#">Sign in</a>
+                            <a href="#">FAQs</a> -->
+                        </div>
+                        <div class="header__top__hover">
+                            <!-- <span>Usd <i class="arrow_carrot-down"></i></span>
+                            <ul>
+                                <li>USD</li>
+                                <li>EUR</li>
+                                <li>USD</li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="/"><img src="{{asset('/logo.png')}}" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="/">Trang chủ</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    <a href="#" class="search-switch"><img src="{{asset('shop/img/icon/search.png')}}" alt=""></a>
+                    <a href="{{route('guest.showCart')}}"><img src="{{asset('shop/img/icon/cart.png')}}" alt=""> <span id="cart">@if(Session::has('cart')!=null){{Session::get('cart')->totalQuanty}} @else 0 @endif</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>
+<!-- Header Section End -->

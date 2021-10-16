@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
     @include('guest.layout.head')
@@ -7,26 +7,25 @@
 </head>
 
 <body>
+
     @include('guest.layout.header')
-<!-- ========================= SECTION MAIN ========================= -->
-<!-- ========================= SECTION MAIN END// ========================= -->
 
-<!-- ========================= SECTION  ========================= -->
-<section class="section-name padding-y-sm">
-    <div class="container">
-        @yield('main')
-    </div><!-- container // -->
-</section>
-<!-- ========================= SECTION  END// ========================= -->
-
-<!-- ========================= FOOTER ========================= -->
+    @yield('main');
+    
     @include('guest.layout.footer')
-<!-- ========================= FOOTER END // ========================= -->
-    <script src="{{asset('ecommerce/js/script.js')}}" type="text/javascript"></script>
-    <script src="{{asset('ecommerce/js/jquery-2.0.0.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('ecommerce/js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
+
+    <!-- Js Plugins -->
+    <script src="{{asset('shop/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('shop/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('shop/js/jquery.nice-select.min.js')}}"></script>
+    <script src="{{asset('shop/js/jquery.nicescroll.min.js')}}"></script>
+    <script src="{{asset('shop/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('shop/js/jquery.countdown.min.js')}}"></script>
+    <script src="{{asset('shop/js/jquery.slicknav.js')}}"></script>
+    <script src="{{asset('shop/js/mixitup.min.js')}}"></script>
+    <script src="{{asset('shop/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('shop/js/main.js')}}"></script>
     @stack('footer')
 </body>
+
 </html>
-
-

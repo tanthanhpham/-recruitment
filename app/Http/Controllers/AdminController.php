@@ -103,20 +103,23 @@ class AdminController extends Controller
 
         return redirect('admin/')->with('success','Account locked/unlocked successfully');
     } 
-    function checkemail(Request $request)
-    {   
-        echo $request->get('emailcheck');
-        if($request->get('emailcheck'))
-        {
-            $emailcheck = $request->get('emailcheck');
+    function checkEmail(Request $request){   
+        // echo $request->get('email');
+        if($request->get('email')){
+            $emailcheck = $request->get('email');
             $data = Admin::where('email', $emailcheck)->count();
-            if($data > 0)
-            {
-                echo 'not_unique';
+            if($data > 0){
+                echo 'exist';
             }
-            else
-            {
-                echo 'unique';
+            
+        }
+    }
+    function checkPhone(Request $request){   
+        if($request->get('phone')){
+            $phone = $request->get('phone');
+            $data = Admin::where('phone', $phone)->count();
+            if($data > 0){
+                echo 'exist';
             }
         }
     }
