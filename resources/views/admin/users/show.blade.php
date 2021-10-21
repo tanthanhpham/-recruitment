@@ -31,28 +31,28 @@
                                                 <span class="data-label">Full Name</span>
                                                 <span class="data-value">{{$user->name}}</span>
                                             </div>
-                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
+                                            <div class="data-col data-col-end"><span class=""></span></div>
                                         </div><!-- data-item -->
                                         <div class="data-item">
                                             <div class="data-col">
                                                 <span class="data-label">Email</span>
                                                 <span class="data-value">{{$user->email}}</span>
                                             </div>
-                                            <div class="data-col data-col-end"><span class="data-more disable"><em class="icon ni ni-lock-alt"></em></span></div>
+                                            <div class="data-col data-col-end"><span class=""></span></div>
                                         </div><!-- data-item -->
                                         <div class="data-item" data-toggle="modal" data-target="#profile-edit">
                                             <div class="data-col">
                                                 <span class="data-label">Phone Number</span>
                                                 <span class="data-value text-soft">{{$user->phone}}</span>
                                             </div>
-                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
+                                            <div class="data-col data-col-end"><span class=""></span></div>
                                         </div><!-- data-item -->
                                         <div class="data-item" data-toggle="modal" data-target="#profile-edit">
                                             <div class="data-col">
                                                 <span class="data-label">Status</span>
-                                                <span class="data-value">Active</span>
+                                                <span class="data-value">@if($user->status == 0) Blocked @else Active @endif</span>
                                             </div>
-                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
+                                            <div class="data-col data-col-end"><span class=""></span></div>
                                         </div><!-- data-item -->
                                     </div><!-- data-list -->
                                 </div><!-- .nk-block -->

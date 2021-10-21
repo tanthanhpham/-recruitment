@@ -13,35 +13,7 @@
                     </div>
                     <div class="card-tools mr-n1">
                         <ul class="btn-toolbar">
-                            <li>
-                                <a href="#" class="btn btn-icon search-toggle toggle-search" data-target="search"><em class="icon ni ni-search"></em></a>
-                            </li><!-- li -->
-                            <li class="btn-toolbar-sep"></li><!-- li -->
-                            <li>
-                                <div class="dropdown">
-                                    <a href="#" class="btn btn-trigger btn-icon dropdown-toggle" data-toggle="dropdown">
-                                        <em class="icon ni ni-setting"></em>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
-                                        <ul class="link-check">
-                                            <li><span>Show</span></li>
-                                            <li class="active"><a href="#">10</a></li>
-                                            <li><a href="#">20</a></li>
-                                            <li><a href="#">50</a></li>
-                                        </ul>
-                                        <ul class="link-check">
-                                            <li><span>Order</span></li>
-                                            <li class="active"><a href="#">DESC</a></li>
-                                            <li><a href="#">ASC</a></li>
-                                        </ul>
-                                        <ul class="link-check">
-                                            <li><span>Density</span></li>
-                                            <li class="active"><a href="#">Regular</a></li>
-                                            <li><a href="#">Compact</a></li>
-                                        </ul>
-                                    </div>
-                                </div><!-- .dropdown -->
-                            </li><!-- li -->
+                            
                         </ul><!-- .btn-toolbar -->
                     </div><!-- card-tools -->
                     <div class="card-search search-wrap" data-search="search">
@@ -100,10 +72,10 @@
                                 </div>
                                 <div class="tb-tnx-status">
                                     @if($transaction->status==0)
-                                        <span class="badge badge-dot badge-warning">Chưa xác nhận</span>
+                                        <span class="badge badge-dot badge-dim">Chưa xác nhận</span>
                                     @elseif($transaction->status==1)
                                         <span class="badge badge-dot badge-warning">Đã xác nhận</span>
-                                    @elseif($transaction->status==3)
+                                    @elseif($transaction->status==2)
                                         <span class="badge badge-dot badge-success">Hoàn thành</span>
                                     @else
                                         <span class="badge badge-dot badge-danger">Huỷ</span>
@@ -116,8 +88,10 @@
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
                                         <ul class="link-list-plain">
                                             <li><a href="{{route('transaction.show',['id' => $transaction->id])}}">View</a></li>
-                                            <li><a href="#">Edit</a></li>
-                                            <li><a href="#">Remove</a></li>
+                                            <li><a href="{{route('transaction.edit',['id' => $transaction->id,'key' => 'a'])}}">Approve</a></li>
+                                            <li><a href="{{route('transaction.edit',['id' => $transaction->id,'key' => 'c'])}}">Complete</a></li>
+                                            <li><a href="{{route('transaction.edit',['id' => $transaction->id,'key' => 'r'])}}">Reject</a></li>
+                                            <li><a href="{{route('transaction.delete',['id' => $transaction->id])}}">Remove</a></li>         
                                         </ul>
                                     </div>
                                 </div>
@@ -128,15 +102,7 @@
                 </table>
             </div><!-- .card-inner -->
             <div class="card-inner">
-                <ul class="pagination justify-content-center justify-content-md-start">
-                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><span class="page-link"><em class="icon ni ni-more-h"></em></span></li>
-                    <li class="page-item"><a class="page-link" href="#">6</a></li>
-                    <li class="page-item"><a class="page-link" href="#">7</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul><!-- .pagination -->
+                {!!$trans->links('pagination::bootstrap-4')!!}
             </div><!-- .card-inner -->
         </div><!-- .card-inner-group -->
     </div><!-- .card -->

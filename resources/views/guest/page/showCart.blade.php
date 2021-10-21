@@ -77,17 +77,11 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="cart__discount">
-                            <h6>Discount codes</h6>
-                            <form action="#">
-                                <input type="text" placeholder="Coupon code">
-                                <button type="submit">Apply</button>
-                            </form>
                         </div>
                         <div class="cart__total">
                             <h6>Tổng giỏ hàng</h6>
                             <ul>
                                 <li>Tổng tiền <span  id="totalPrice">{{Session::get('cart')->totalPrice}}đ</span> </li>
-                                <li>Tổng <span>{{Session::get('cart')->totalPrice}}đ</span> </li>
                             </ul>
                             <a href="{{route('guest.checkout')}}" class="primary-btn">Tiến hành thanh toán</a>
                         </div>
@@ -121,8 +115,10 @@
 <script>
     function deleteNumberItem(id){
         var priceItems=$('#price'+id).val();
+        console.log(priceItems);
         var number=$('#quantyProduct'+id).val();
         var price= priceItems/number;
+        console.log(number);
         // console.log(price);
         if(number==1){
             $('#quantyProduct'+id).attr('value',number);

@@ -6,8 +6,7 @@
         </div>
         <div class="nk-sidebar-brand">
             <a href="\admin" class="logo-link nk-sidebar-logo">
-                <img class="logo-light logo-img" src="{{ asset('/logo-1.png') }}" srcset="./images/logo2x.png 3x" alt="logo">
-                <img class="logo-dark logo-img" src="{{ asset('/logo.png') }}" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                <!-- <img class="logo-light logo-img" src="{{asset('/logo.png')}}" width="70%" srcset="./images/logo2x.png 3x" alt="logo"> -->
             </a>
         </div>
     </div><!-- .nk-sidebar-element -->

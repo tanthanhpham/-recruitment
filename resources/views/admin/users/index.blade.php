@@ -38,7 +38,14 @@
                             <a href="html/user-details-regular.html">
                                 <div class="user-card">
                                     <div class="user-avatar bg-primary">
-                                        <span>AB</span>
+                                        <span>
+                                            @php 
+                                                $arrName = explode(" ", $userli->name);
+                                                $lastName = array_pop($arrName); 
+                                                $firstLetter=substr($lastName,0,1);
+                                            @endphp
+                                            {{$firstLetter}}
+                                        </span>
                                     </div>
                                     <div class="user-info">
                                         <span class="tb-lead">{{$userli->name}} <span class="dot dot-success d-md-none ml-1"></span></span>

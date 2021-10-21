@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
+use App\Jobs\SendMail;
 use App\Models\Product;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\FuncCall;
 
 class TransactionController extends Controller
 {   
     public function index(){
         $user = Auth::guard('admin')->user();
-        $trans=Transaction::all();
+        $trans=Transaction::paginate(10);
         return view('admin.transaction.index',compact('user','trans'));
     }
     
     public function store(Request $request){
+        $products = Product::all();
         $data=$request->validate([
             'name' => 'required',
             'address' => 'required',
@@ -31,7 +35,7 @@ class TransactionController extends Controller
         $trans->total=$data['total'];
         $trans->email=$data['email'];
         $trans->note=$request->note;
-        $trans->payment='Thanh toán khi nhận hàng';
+        $trans->payment=$request->payment;
         $trans->discount=0;
         $trans->status=0;
 
@@ -48,8 +52,10 @@ class TransactionController extends Controller
             $i++;
          
         }
+
         $trans->orders()->attach($product_order);
         $request->session()->forget('cart');
+        SendMail::dispatch($trans,$products)->delay(now()->addMinute(1));
         // dd($product_order);
         return  redirect('/');
     }
@@ -61,5 +67,26 @@ class TransactionController extends Controller
         // dd($trans->orders);
         // foreach($trans->order as $item)
         return view('admin.transaction.show',compact('user','trans','products'));
+    }
+
+    public function edit($id,$key){
+        $user = Auth::guard('admin')->user();
+        $trans= Transaction::find($id);
+        if($key == 'a'){
+            $trans->status=1;
+        }elseif($key == 'c'){
+            $trans->status=2;
+        }else{
+            $trans->status=3;
+        }
+        $trans->save();
+        return  redirect('admin/transactions/');
+    }
+
+    public function delete($id){
+        $trans=Transaction::find($id);
+        $trans->orders()->detach();
+        Transaction::where('id',$id)->delete();
+        return redirect('admin/transactions')->with('success','Deleted');
     }
 }

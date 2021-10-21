@@ -45,7 +45,6 @@
                             </div>
                             <div class="nk-tb-col tb-col-sm"><span>Name</span></div>
                             <div class="nk-tb-col"><span>Price</span></div>
-                            <div class="nk-tb-col"><span>Stock</span></div>
                             <div class="nk-tb-col"><span>Brand</span></div>
                             <div class="nk-tb-col tb-col-md"><span>Category</span></div>
                             <div class="nk-tb-col nk-tb-col-tools">
@@ -87,9 +86,6 @@
                                         {{$price->product_price->price}}
                                     @endforeach
                                 </span>
-                            </div>
-                            <div class="nk-tb-col">
-                                <span class="tb-sub">49</span>
                             </div>
                             <div class="nk-tb-col">
                                 @foreach($brands as $brand)

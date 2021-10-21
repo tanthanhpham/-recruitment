@@ -66,7 +66,9 @@ Route::middleware(['admin'])->group(function () {
     //Transaction
     Route::get('admin/transactions/', [TransactionController::class,'index'])->name('transaction.index');
     Route::get('admin/transactions/show/{id}', [TransactionController::class,'show'])->name('transaction.show');
-
+    Route::get('admin/transactions/edit/{id}{key}', [TransactionController::class,'edit'])->name('transaction.edit');
+    Route::get('admin/transactions/update/{id}', [TransactionController::class,'update'])->name('transaction.update');
+    Route::get('admin/transactions/delete/{id}', [TransactionController::class,'delete'])->name('transaction.delete');
 });
 
 // Route::get('lkn',function(){
@@ -93,6 +95,7 @@ Route::get('/show/{id}', [PageController::class,'show'])->name('guest.show');
 Route::post('/getPrice', [PageController::class,'getPrice'])->name('guest.getPrice');
 Route::post('/getIdPrice', [PageController::class,'getIdPrice'])->name('guest.getIdPrice');
 Route::get('/getCategory/{id}', [PageController::class,'getCategory'])->name('guest.getCategory');
+Route::get('/getBrand/{id}', [PageController::class,'getBrand'])->name('guest.getBrand');
 Route::get('/search', [PageController::class,'search'])->name('guest.search');
 Route::get('/addCart/{id}', [PageController::class,'addCart'])->name('guest.addCart');
 Route::get('/cart', [PageController::class,'cart'])->name('guest.cart');
@@ -101,5 +104,12 @@ Route::get('/deleteCart/{id}', [PageController::class,'deleteCart'])->name('gues
 Route::get('/updateItemCart/{id}', [PageController::class,'updateItemCart'])->name('guest.updateItemCart');
 Route::get('/checkout', [PageController::class,'checkout'])->name('guest.checkout');
 Route::post('/checkout/store/', [TransactionController::class,'store'])->name('transaction.store');
+Route::get('/searchPrice', [PageController::class,'searchPrice'])->name('guest.searchPrice');
+Route::get('/checkout/home', [PageController::class,'home'])->name('guest.home');
+Route::get('/findProduct/{id}', [PageController::class,'find'])->name('guest.find');
+Route::get('/addToCart', [PageController::class,'addToCart'])->name('guest.addToCart');
+
+
+
 
 

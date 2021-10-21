@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer__about">
-                    <div class="footer__logo">
+                    <!-- <div class="footer__logo">
                         <a href="#"><img src="{{asset('shop/img/footer-logo.png')}}" alt=""></a>
-                    </div>
+                    </div> -->
                     <p>Sự an tâm của khách hàng là điểm chúng tôi hướng đến</p>
                     <a href="#"><img src="{{asset('shop/img/payment.png')}}" alt=""></a>
                 </div>

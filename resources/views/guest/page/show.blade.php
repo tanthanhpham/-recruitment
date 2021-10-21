@@ -62,7 +62,7 @@
                             <div class="product__details__cart__option">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" value="1">
+                                        <input type="text" id="quantity" value="1">
                                     </div>
                                 </div>
                                 <a href="#" class="primary-btn addToCart">Thêm vào giỏ hàng</a>
@@ -162,10 +162,11 @@
 			var id =$('#getIdPrice').val();
 			var size=$('input[name=size]:checked').val();
 			var price=$('#getPrice').val();
+            var number=$('#quantity').val();
 			$.ajax({
 				url: "/addCart/" +pro_id,
 				type:"GET",
-				data:  { size:size, price:price, id:id },
+				data:  { size:size, price:price, id:id,number:number},
 				success: function(result){
                     console.log(result);
 					alertify.notify('Thêm sản phẩm thành công','primary');

@@ -73,9 +73,12 @@
                     </td>
                 </tr>
             @endforeach
+            <tr></tr>
         </tbody>
-        {!!$category->links('pagination::bootstrap-4')!!}
     </table>
+    <hr style="margin: 0; margin-bottom: 3px;">
+    {!!$category->links('pagination::bootstrap-4')!!}
+
     @endif
 </div>
 @endsection

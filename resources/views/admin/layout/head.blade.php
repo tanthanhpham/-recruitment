@@ -7,7 +7,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="{{asset('logo-dark-1.png')}}">
     <!-- Page Title  -->
-    <title>Buedue Store | Luôn luôn buedue, luôn luôn thấu hiểu</title>
+    <title>Boong Boong Store</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{ asset('dashlite/assets/css/dashlite.css?ver=2.5.0') }}">
     <link id="skin-default" rel="stylesheet" href="{{ asset('dashlite/assets/css/theme.css?ver=2.5.0') }}">
