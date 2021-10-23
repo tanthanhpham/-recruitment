@@ -35,7 +35,10 @@
     </style>
 </head>
 <body>
-<p>Chào anh chị, <br>Cảm ơn Anh/chị đã mua hàng tại Boong Store <br>Nhân viên của chúng tôi sẽ gọi điện xác nhận đơn hàng trong thời gian sớm nhất, nhờ anh/chị chú ý đến điện thoại.</p>
+<p>Chào anh chị, <br>Cảm ơn Anh/chị đã mua hàng tại Boong Store <br>@if($trans->status == 1) Đơn hàng trong quá trình vận chuyển, thời gian nhận hàng sau 3 - 4 ngày kể từ hôm nay.
+@else 
+    Nhân viên của chúng tôi sẽ gọi điện xác nhận đơn hàng trong thời gian sớm nhất, nhờ anh/chị chú ý đến điện thoại.
+@endif</p>
 <table>
     <tr>
         <td class="th">

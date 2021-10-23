@@ -97,7 +97,7 @@ a:hover,
 a:focus {
 	text-decoration: none;
 	outline: none;
-	color: #ffffff;
+	color: #111111;
 }
 
 ul,
@@ -116,7 +116,7 @@ ol {
 }
 
 .section-title span {
-	color: #e53637;
+	color: #2eaded;
 	font-size: 14px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -164,14 +164,14 @@ ol {
 	text-transform: uppercase;
 	padding: 14px 30px;
 	color: #ffffff;
-	background: #000000;
+	background: #007bff;
 	letter-spacing: 4px;
 }
 
 .site-btn {
 	font-size: 14px;
 	color: #ffffff;
-	background: #111111;
+	background: #2EADED;
 	font-weight: 700;
 	border: none;
 	text-transform: uppercase;
@@ -316,16 +316,16 @@ ol {
 -----------------------*/
 
 .header {
-	background: #ffffff;
+	background: #fff;
 }
 
 .header__top {
-	background: #111111;
+	background: #f2f2f2;
 	padding: 10px 0;
 }
 
 .header__top__left p {
-	color: #ffffff;
+	color: #fff;
 	margin-bottom: 0;
 }
 
@@ -339,7 +339,7 @@ ol {
 }
 
 .header__top__links a {
-	color: #ffffff;
+	color: #111111;
 	font-size: 13px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -363,7 +363,7 @@ ol {
 }
 
 .header__top__hover span {
-	color: #ffffff;
+	color: #111111;
 	font-size: 13px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -379,7 +379,7 @@ ol {
 }
 
 .header__top__hover ul {
-	background: #ffffff;
+	background: #111111;
 	display: inline-block;
 	padding: 2px 0;
 	position: absolute;
@@ -468,7 +468,7 @@ ol {
 
 .header__menu ul li .dropdown li a {
 	font-size: 14px;
-	color: #ffffff;
+	color: #111111;
 	font-weight: 400;
 	padding: 5px 20px;
 	text-transform: capitalize;
@@ -493,7 +493,7 @@ ol {
 	bottom: 0;
 	width: 100%;
 	height: 2px;
-	background: #e53637;
+	background: #2eaded;
 	content: "";
 	-webkit-transition: all, 0.5s;
 	-o-transition: all, 0.5s;
@@ -589,7 +589,7 @@ ol {
 }
 
 .hero__text h6 {
-	color: #e53637;
+	color: #2eaded;
 	font-size: 14px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -675,7 +675,7 @@ ol {
 
 .banner__item:hover .banner__item__text a:after {
 	width: 40px;
-	background: #e53637;
+	background: #2eaded;
 }
 
 .banner__item.banner__item--middle {
@@ -763,13 +763,13 @@ ol {
 	top: 0;
 	height: 300px;
 	width: 600px;
-	background: #ffffff;
+	background: #111111;
 	z-index: -1;
 	content: "";
 }
 
 .categories__text h2 {
-	color: #b7b7b7;
+	color: #111111;
 	line-height: 72px;
 	font-size: 34px;
 }
@@ -803,18 +803,18 @@ ol {
 .hot__deal__sticker span {
 	display: block;
 	font-size: 15px;
-	color: #ffffff;
+	color: #111111;
 	margin-bottom: 4px;
 }
 
 .hot__deal__sticker h5 {
-	color: #ffffff;
+	color: #111111;
 	font-size: 20px;
 	font-weight: 700;
 }
 
 .categories__deal__countdown span {
-	color: #e53637;
+	color: #2eaded;
 	font-size: 14px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -899,7 +899,7 @@ ol {
 }
 
 .instagram__text h3 {
-	color: #e53637;
+	color: #2eaded;
 	font-weight: 700;
 }
 
@@ -918,7 +918,7 @@ ol {
 }
 
 .filter__controls li {
-	color: #b7b7b7;
+	color: #111111;
 	font-size: 24px;
 	font-weight: 700;
 	list-style: none;
@@ -941,7 +941,7 @@ ol {
 }
 
 .product__item.sale .product__item__pic .label {
-	color: #ffffff;
+	color: #111111;
 	background: #111111;
 }
 
@@ -950,7 +950,7 @@ ol {
 }
 
 .product__item.sale .product__item__text .rating i:nth-last-child(1) {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .product__item:hover .product__item__pic .product__hover {
@@ -986,7 +986,7 @@ ol {
 	text-transform: uppercase;
 	display: inline-block;
 	padding: 4px 15px 2px;
-	background: #ffffff;
+	background: #111111;
 	position: absolute;
 	left: 0;
 	top: 20px;
@@ -1013,7 +1013,7 @@ ol {
 }
 
 .product__item__pic .product__hover li span {
-	color: #ffffff;
+	color: #111111;
 	background: #111111;
 	display: inline-block;
 	padding: 4px 10px;
@@ -1044,7 +1044,7 @@ ol {
 }
 
 .product__item__pic .product__hover li img {
-	background: #ffffff;
+	background: #111111;
 	padding: 10px;
 	display: inline-block;
 }
@@ -1056,7 +1056,7 @@ ol {
 
 .product__item__text a {
 	font-size: 15px;
-	color: #e53637;
+	color: #2eaded;
 	font-weight: 700;
 	position: absolute;
 	left: 0;
@@ -1084,7 +1084,7 @@ ol {
 
 .product__item__text .rating i {
 	font-size: 14px;
-	color: #b7b7b7;
+	color: #111111;
 	margin-right: -5px;
 }
 
@@ -1163,34 +1163,34 @@ ol {
 .shop__sidebar__search form input {
 	width: 100%;
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #111111;
 	padding-left: 20px;
 	border: 1px solid #e5e5e5;
 	height: 42px;
 }
 
 .shop__sidebar__search form input::-webkit-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .shop__sidebar__search form input::-moz-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .shop__sidebar__search form input:-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .shop__sidebar__search form input::-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .shop__sidebar__search form input::placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .shop__sidebar__search form button {
-	color: #b7b7b7;
+	color: #111111;
 	font-size: 15px;
 	border: none;
 	background: transparent;
@@ -1250,7 +1250,7 @@ ol {
 .shop__sidebar__categories ul li a,
 .shop__sidebar__price ul li a,
 .shop__sidebar__brand ul li a {
-	color: #b7b7b7;
+	color: #111111;
 	font-size: 15px;
 	line-height: 32px;
 	-webkit-transition: all, 0.3s;
@@ -1291,7 +1291,7 @@ ol {
 
 .shop__sidebar__size label.active {
 	background: #111111;
-	color: #ffffff;
+	color: #111111;
 	border-color: #111111;
 }
 
@@ -1348,7 +1348,7 @@ ol {
 }
 
 .shop__sidebar__color label.c-9 {
-	background: #ffffff;
+	background: #111111;
 }
 
 .shop__sidebar__color label:after {
@@ -1388,7 +1388,7 @@ ol {
 
 .shop__sidebar__tags a:hover {
 	background: #111111;
-	color: #ffffff;
+	color: #111111;
 }
 
 .shop__sidebar__accordion .card-heading a:after,
@@ -1543,10 +1543,10 @@ ol {
 .product__details__pic .nav-tabs .nav-item .nav-link .product__thumb__pic i {
 	height: 56px;
 	width: 56px;
-	border: 4px solid #ffffff;
+	border: 4px solid #111111;
 	border-radius: 50%;
 	font-size: 20px;
-	color: #ffffff;
+	color: #111111;
 	line-height: 48px;
 	display: inline-block;
 	text-align: center;
@@ -1580,7 +1580,7 @@ ol {
 
 .product__details__breadcrumb span {
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #111111;
 	display: inline-block;
 }
 
@@ -1591,10 +1591,10 @@ ol {
 .product__details__pic__item a {
 	height: 56px;
 	width: 56px;
-	border: 4px solid #ffffff;
+	border: 4px solid #111111;
 	border-radius: 50%;
 	font-size: 20px;
-	color: #ffffff;
+	color: #111111;
 	line-height: 48px;
 	text-align: center;
 	display: inline-block;
@@ -1639,7 +1639,7 @@ ol {
 }
 
 .product__details__text h3 span {
-	color: #b7b7b7;
+	color: #111111;
 	font-size: 20px;
 	font-weight: 400;
 	margin-left: 10px;
@@ -1680,7 +1680,7 @@ ol {
 
 .product__details__option__size label.active {
 	background: #111111;
-	color: #ffffff;
+	color: #fff;
 	border-color: #111111;
 }
 
@@ -1731,7 +1731,7 @@ ol {
 }
 
 .product__details__option__color label.c-9 {
-	background: #ffffff;
+	background: #111111;
 }
 
 .product__details__option__color label:after {
@@ -1850,7 +1850,7 @@ ol {
 
 .product__details__last__option ul li span {
 	font-weight: 400;
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .product__details__tab {
@@ -1874,7 +1874,7 @@ ol {
 
 .product__details__tab .nav-tabs .nav-item .nav-link {
 	font-size: 20px;
-	color: #b7b7b7;
+	color: #111111;
 	padding: 0;
 	border: none;
 	font-weight: 700;
@@ -1883,7 +1883,7 @@ ol {
 }
 
 .product__details__tab .nav-tabs .nav-item .nav-link.active {
-	border-bottom: 2px solid #e53637;
+	border-bottom: 2px solid #2eaded;
 }
 
 .product__details__tab__content {
@@ -1937,7 +1937,7 @@ ol {
 -----------------------*/
 
 .footer {
-	background: #111111;
+	background: #f2f2f2;
 	padding-top: 70px;
 }
 
@@ -1954,7 +1954,7 @@ ol {
 }
 
 .footer__about p {
-	color: #b7b7b7;
+	color: #111111;
 	margin-bottom: 30px;
 }
 
@@ -1963,7 +1963,7 @@ ol {
 }
 
 .footer__widget h6 {
-	color: #ffffff;
+	color: #111111;
 	font-size: 15px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -1977,12 +1977,12 @@ ol {
 }
 
 .footer__widget ul li a {
-	color: #b7b7b7;
+	color: #111111;
 	font-size: 15px;
 }
 
 .footer__widget .footer__newslatter p {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .footer__widget .footer__newslatter form {
@@ -1996,7 +1996,7 @@ ol {
 	background: transparent;
 	border: none;
 	padding: 15px 0;
-	border-bottom: 2px solid #ffffff;
+	border-bottom: 2px solid #111111;
 }
 
 .footer__widget .footer__newslatter form input::-webkit-input-placeholder {
@@ -2020,7 +2020,7 @@ ol {
 }
 
 .footer__widget .footer__newslatter form button {
-	color: #b7b7b7;
+	color: #111111;
 	font-size: 16px;
 	position: absolute;
 	right: 5px;
@@ -2037,16 +2037,16 @@ ol {
 }
 
 .footer__copyright__text p {
-	color: #b7b7b7;
+	color: #111111;
 	margin-bottom: 0;
 }
 
 .footer__copyright__text p i {
-	color: #e53637;
+	color: #2eaded;
 }
 
 .footer__copyright__text p a {
-	color: #e53637;
+	color: #2eaded;
 }
 
 /*---------------------
@@ -2082,7 +2082,7 @@ ol {
 
 .breadcrumb__links span {
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #111111;
 	display: inline-block;
 }
 
@@ -2105,7 +2105,7 @@ ol {
 }
 
 .breadcrumb-blog h2 {
-	color: #ffffff;
+	color: #111111;
 	font-size: 60px;
 	font-weight: 700;
 }
@@ -2154,7 +2154,7 @@ ol {
 }
 
 .testimonial__text span {
-	color: #e53637;
+	color: #2eaded;
 	font-size: 72px;
 }
 
@@ -2194,7 +2194,7 @@ ol {
 }
 
 .testimonial__author__text p {
-	color: #b7b7b7;
+	color: #111111;
 	margin-bottom: 0 !important;
 	padding-top: 0;
 }
@@ -2277,7 +2277,7 @@ ol {
 .team__item span {
 	font-size: 15px;
 	display: block;
-	color: #b7b7b7;
+	color: #111111;
 }
 
 /*---------------------
@@ -2400,7 +2400,7 @@ ol {
 }
 
 .continue__btn.update__btn a {
-	color: #ffffff;
+	color: #111111;
 	background: #111111;
 	border-color: #111111;
 }
@@ -2437,7 +2437,7 @@ ol {
 
 .cart__discount form input {
 	font-size: 14px;
-	color: #b7b7b7;
+	color: #111111;
 	height: 50px;
 	width: 100%;
 	border: 1px solid #e1e1e1;
@@ -2445,28 +2445,28 @@ ol {
 }
 
 .cart__discount form input::-webkit-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .cart__discount form input::-moz-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .cart__discount form input:-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .cart__discount form input::-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .cart__discount form input::placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .cart__discount form button {
 	font-size: 14px;
-	color: #ffffff;
+	color: #111111;
 	font-weight: 700;
 	letter-spacing: 2px;
 	text-transform: uppercase;
@@ -2504,7 +2504,7 @@ ol {
 
 .cart__total ul li span {
 	font-weight: 700;
-	color: #e53637;
+	color: #2eaded;
 	float: right;
 }
 
@@ -2555,7 +2555,7 @@ ol {
 }
 
 .checkout__input p span {
-	color: #e53637;
+	color: #2eaded;
 }
 
 .checkout__input input {
@@ -2563,29 +2563,29 @@ ol {
 	width: 100%;
 	border: 1px solid #e1e1e1;
 	font-size: 14px;
-	color: #b7b7b7;
+	color: #111111;
 	padding-left: 20px;
 	margin-bottom: 20px;
 }
 
 .checkout__input input::-webkit-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .checkout__input input::-moz-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .checkout__input input:-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .checkout__input input::-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .checkout__input input::placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .checkout__input__checkbox label {
@@ -2604,7 +2604,7 @@ ol {
 }
 
 .checkout__input__checkbox label input:checked~.checkmark {
-	border-color: #e53637;
+	border-color: #2eaded;
 }
 
 .checkout__input__checkbox label input:checked~.checkmark:after {
@@ -2628,7 +2628,7 @@ ol {
 	top: -3px;
 	width: 14px;
 	height: 7px;
-	border: solid #e53637;
+	border: solid #2eaded;
 	border-width: 1.5px 1.5px 0px 0px;
 	-webkit-transform: rotate(127deg);
 	-ms-transform: rotate(127deg);
@@ -2718,7 +2718,7 @@ ol {
 }
 
 .checkout__total__all li span {
-	color: #e53637;
+	color: #2eaded;
 	font-weight: 700;
 	float: right;
 }
@@ -2741,7 +2741,7 @@ ol {
 
 .blog__item:hover a::after {
 	width: 40px;
-	background: #e53637;
+	background: #2eaded;
 }
 
 .blog__item:hover .blog__item__text {
@@ -2757,7 +2757,7 @@ ol {
 	padding: 30px 30px 25px;
 	margin: 0 30px;
 	margin-top: -35px;
-	background: #ffffff;
+	background: #fcfaf9;
 	-webkit-transition: all, 0.3s;
 	-o-transition: all, 0.3s;
 	transition: all, 0.3s;
@@ -3002,7 +3002,7 @@ ol {
 }
 
 .blog__details__share ul li a {
-	color: #ffffff;
+	color: #111111;
 	font-size: 18px;
 	height: 46px;
 	display: inline-block;
@@ -3048,10 +3048,10 @@ ol {
 
 .blog__details__quote i {
 	font-size: 16px;
-	color: #ffffff;
+	color: #111111;
 	height: 50px;
 	width: 50px;
-	background: #e53637;
+	background: #2eaded;
 	border-radius: 50%;
 	line-height: 50px;
 	text-align: center;
@@ -3069,7 +3069,7 @@ ol {
 }
 
 .blog__details__quote h6 {
-	color: #e53637;
+	color: #2eaded;
 	font-size: 15px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -3137,7 +3137,7 @@ ol {
 }
 
 .blog__details__btns__item p {
-	color: #b7b7b7;
+	color: #111111;
 	margin-bottom: 10px;
 }
 
@@ -3168,7 +3168,7 @@ ol {
 	border: 1px solid #e1e1e1;
 	padding-left: 20px;
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #111111;
 	margin-bottom: 30px;
 	-webkit-transition: all, 0.3s;
 	-o-transition: all, 0.3s;
@@ -3176,23 +3176,23 @@ ol {
 }
 
 .blog__details__comment form input::-webkit-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .blog__details__comment form input::-moz-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .blog__details__comment form input:-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .blog__details__comment form input::-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .blog__details__comment form input::placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .blog__details__comment form input:focus {
@@ -3206,7 +3206,7 @@ ol {
 	padding-left: 20px;
 	padding-top: 12px;
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #111111;
 	margin-bottom: 24px;
 	resize: none;
 	-webkit-transition: all, 0.3s;
@@ -3215,23 +3215,23 @@ ol {
 }
 
 .blog__details__comment form textarea::-webkit-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .blog__details__comment form textarea::-moz-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .blog__details__comment form textarea:-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .blog__details__comment form textarea::-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .blog__details__comment form textarea::placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .blog__details__comment form textarea:focus {
@@ -3301,28 +3301,28 @@ ol {
 	border: 1px solid #e1e1e1;
 	padding-left: 20px;
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #111111;
 	margin-bottom: 30px;
 }
 
 .contact__form input::-webkit-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .contact__form input::-moz-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .contact__form input:-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .contact__form input::-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .contact__form input::placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .contact__form textarea {
@@ -3332,29 +3332,29 @@ ol {
 	padding-left: 20px;
 	padding-top: 12px;
 	font-size: 15px;
-	color: #b7b7b7;
+	color: #111111;
 	margin-bottom: 24px;
 	resize: none;
 }
 
 .contact__form textarea::-webkit-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .contact__form textarea::-moz-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .contact__form textarea:-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .contact__form textarea::-ms-input-placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .contact__form textarea::placeholder {
-	color: #b7b7b7;
+	color: #111111;
 }
 
 .contact__form button {
@@ -3498,7 +3498,7 @@ ol {
 		left: -300px;
 		width: 300px;
 		height: 100%;
-		background: #ffffff;
+		background: #111111;
 		padding: 50px 20px 30px 30px;
 		display: block;
 		z-index: 99;
@@ -3610,7 +3610,7 @@ ol {
 	.offcanvas__top__hover ul li {
 		list-style: none;
 		font-size: 13px;
-		color: #ffffff;
+		color: #111111;
 		padding: 2px 15px;
 		cursor: pointer;
 	}

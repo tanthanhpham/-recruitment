@@ -70,19 +70,19 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
-                    <ul>
-                        <li class="active"><a href="/">Trang chủ</a></li>
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Sản phẩm</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Liên hệ</a></li>
+                    <ul id="menu">
+                        <li class="menu active"><a href="/">Trang chủ</a></li>
+                        <li class="menu"><a href="#">Giới thiệu</a></li>
+                        <li class="menu"><a href="{{route('shop.index')}}">Sản phẩm</a></li>
+                        <li class="menu"><a href="#">Blog</a></li>
+                        <li class="menu"><a href="#">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
                     <a href="#" class="search-switch"><img src="{{asset('shop/img/icon/search.png')}}" alt=""></a>
-                    <a href="{{route('guest.showCart')}}"><img src="{{asset('shop/img/icon/cart.png')}}" alt=""> <span id="cart">@if(Session::has('cart')!=null){{Session::get('cart')->totalQuanty}} @else 0 @endif</span></a>
+                    <a href="{{route('cart.show')}}"><img src="{{asset('shop/img/icon/cart.png')}}" alt=""> <span id="cart">@if(Session::has('cart')!=null){{Session::get('cart')->totalQuanty}} @else 0 @endif</span></a>
                 </div>
             </div>
         </div>

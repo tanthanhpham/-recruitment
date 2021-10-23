@@ -4,6 +4,15 @@
 
 @section('content')
 <div class="nk-block">
+    @if($trans->count() == 0)
+        <div class="card-inner p-0">
+            <div class="alert m-0">
+                <div class="alert alert-warning alert-icon">
+                    <em class="icon ni ni-alert-circle"></em> Bạn chưa giao dịch nào. 
+                </div>
+            </div>
+        </div>
+    @else
     <div class="card card-bordered card-stretch">
         <div class="card-inner-group">
             <div class="card-inner">
@@ -38,7 +47,6 @@
                                     <span class="d-md-none">Date</span>
                                     <span class="d-none d-md-block">
                                         <span>Issue Date</span>
-                                        <span>Due Date</span>
                                     </span>
                                 </span>
                             </th>
@@ -62,8 +70,7 @@
                                     <span class="title">{{$transaction->name}}</span>
                                 </div>
                                 <div class="tb-tnx-date">
-                                    <span class="date">10-05-2019</span>
-                                    <span class="date">10-13-2019</span>
+                                    <span class="date">{{$transaction->created_at}}</span>
                                 </div>
                             </td>
                             <td class="tb-tnx-amount is-alt">
@@ -106,6 +113,7 @@
             </div><!-- .card-inner -->
         </div><!-- .card-inner-group -->
     </div><!-- .card -->
+    @endif
 </div>
 
 @endsection

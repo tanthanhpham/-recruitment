@@ -23,7 +23,7 @@
                 <h3 class="title">Invoice</h3>
                 <ul class="list-plain">
                     <li class="invoice-id"><span>Invoice ID</span>:<span>{{$trans->id}}</span></li>
-                    <li class="invoice-date"><span>Date</span>:<span>26 Jan, 2020</span></li>
+                    <li class="invoice-date"><span>Date</span>:<span>{{$trans->created_at}}</span></li>
                 </ul>
             </div>
         </div><!-- .invoice-head -->
@@ -74,12 +74,6 @@
                             <td colspan="3">Subtotal</td>
                             <td>{{$trans->total}}</td>
                         </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td colspan="3">Discount</td>
-                            <td>{{$trans->discount}}</td>
-                        </tr>
-                       
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="3">Grand Total</td>

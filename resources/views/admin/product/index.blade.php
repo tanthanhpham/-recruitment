@@ -101,7 +101,7 @@
                                 <ul class="nk-tb-actions gx-1 my-n1">
                                     <li class="mr-n1">
                                         <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                            <a class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <ul class="link-list-opt no-bdr">
                                                     <li><a href="{{route('product.edit',['id' => $product->id])}}"><em class="icon ni ni-edit"></em><span>Edit Product</span></a></li>

@@ -6,9 +6,10 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\TransactionController;
-use App\Models\Product;
-use App\Models\Transaction;
+use App\Http\Controllers\CartController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -86,30 +87,31 @@ Route::middleware(['admin'])->group(function () {
 //     }
 // });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', [PageController::class,'index'])->name('guest.index');
-Route::get('/show/{id}', [PageController::class,'show'])->name('guest.show');
+
 Route::post('/getPrice', [PageController::class,'getPrice'])->name('guest.getPrice');
 Route::post('/getIdPrice', [PageController::class,'getIdPrice'])->name('guest.getIdPrice');
 Route::get('/getCategory/{id}', [PageController::class,'getCategory'])->name('guest.getCategory');
 Route::get('/getBrand/{id}', [PageController::class,'getBrand'])->name('guest.getBrand');
 Route::get('/search', [PageController::class,'search'])->name('guest.search');
-Route::get('/addCart/{id}', [PageController::class,'addCart'])->name('guest.addCart');
-Route::get('/cart', [PageController::class,'cart'])->name('guest.cart');
-Route::get('/showCart', [PageController::class,'showCart'])->name('guest.showCart');
-Route::get('/deleteCart/{id}', [PageController::class,'deleteCart'])->name('guest.deleteCart');
-Route::get('/updateItemCart/{id}', [PageController::class,'updateItemCart'])->name('guest.updateItemCart');
-Route::get('/checkout', [PageController::class,'checkout'])->name('guest.checkout');
-Route::post('/checkout/store/', [TransactionController::class,'store'])->name('transaction.store');
 Route::get('/searchPrice', [PageController::class,'searchPrice'])->name('guest.searchPrice');
+
+Route::get('/checkout', [PageController::class,'checkout'])->name('guest.checkout');
 Route::get('/checkout/home', [PageController::class,'home'])->name('guest.home');
-Route::get('/findProduct/{id}', [PageController::class,'find'])->name('guest.find');
-Route::get('/addToCart', [PageController::class,'addToCart'])->name('guest.addToCart');
+Route::post('/checkout/store/', [TransactionController::class,'store'])->name('transaction.store');
 
+Route::get('/shop/index', [ShopController::class,'index'])->name('shop.index');
+Route::get('/shop/show/{id}', [ShopController::class,'show'])->name('shop.show');
+Route::get('/findProduct/{id}', [ShopController::class,'find'])->name('shop.find');
 
-
-
+Route::get('/cart', [CartController::class,'index'])->name('cart.index');
+Route::get('/addCart/{id}', [CartController::class,'create'])->name('cart.create');
+Route::get('/deleteCart/{id}', [CartController::class,'delete'])->name('cart.delete');
+Route::get('/updateItemCart/{id}', [CartController::class,'update'])->name('cart.update');
+Route::get('/addToCart', [CartController::class,'add'])->name('cart.add');
+Route::get('/showCart', [CartController::class,'show'])->name('cart.show');
 

@@ -157,6 +157,7 @@ class ProductController extends Controller
             'size' => 'required',
             'price' => 'required'
         ]);
+      
         $size=$data['size'];
         $price=$data['price'];
         
@@ -169,6 +170,7 @@ class ProductController extends Controller
                 $idprice=$addsize->id;
             }
         }
+        
         $product=Product::find($id);
         for ($i=0; $i <count($size);$i++) {
             $idprice=Size::where('name',$size[$i])->first()->id;
@@ -179,6 +181,7 @@ class ProductController extends Controller
                 'size_id' =>$idprice,
             ]);
         }
+        // dd($product_size);
         $product->size()->sync($product_size);
         return redirect('admin/products')->with('success','Updated');
     }

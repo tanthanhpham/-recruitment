@@ -73,3 +73,13 @@
     </div>
 </div>
 <!-- Search End -->
+
+<script>
+$(document).ready(function() {
+    $(".menu").click(function () {
+        $(".menu").removeClass("active");
+        // $(".tab").addClass("active"); // instead of this do the below 
+        $(this).addClass("active");   
+    });
+});
+</script>

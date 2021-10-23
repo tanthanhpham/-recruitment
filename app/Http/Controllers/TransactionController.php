@@ -71,9 +71,11 @@ class TransactionController extends Controller
 
     public function edit($id,$key){
         $user = Auth::guard('admin')->user();
+        $products = Product::all();
         $trans= Transaction::find($id);
         if($key == 'a'){
             $trans->status=1;
+            SendMail::dispatch($trans,$products)->delay(now()->addMinute(1));
         }elseif($key == 'c'){
             $trans->status=2;
         }else{
