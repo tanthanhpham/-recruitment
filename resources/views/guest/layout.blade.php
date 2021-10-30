@@ -7,7 +7,7 @@
 </head>
 
 <body>
-
+    
     @include('guest.layout.header')
 
     @yield('main');
@@ -26,6 +26,15 @@
     <script src="{{asset('shop/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('shop/js/main.js')}}"></script>
     @stack('footer')
+    <script>
+        $("#menu_header li").on("click",function () {
+            $("#menu_header li").removeClass("active");
+            $(this).addClass("active");   
+        });
+    </script>
+    <script>
+
+    </script>
 </body>
 
 </html>

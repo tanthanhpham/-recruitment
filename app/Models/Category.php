@@ -17,7 +17,15 @@ class Category extends Model
         'alias'
     ];
 
-    // public function product(){
-    //     return $this->hasMany('App\')
-    // }
+    public function parent() {
+        return $this->belongsTo(Category::class, 'p_category_id');
+    }
+    
+    public function childs() {
+        return $this->hasMany(Category::class, 'p_category_id');
+    }
+ 
+    public function products() {
+        return $this->hasManyThrough(Product::class, Category::class, 'p_category_id', 'category_id', 'id');
+    }
 }

@@ -17,7 +17,7 @@
             @endforeach
      
         <div class="product__details__cart__option d-flex justify-content-center">
-            <button type="submit" class="primary-btn addToCart">Thêm vào giỏ hàng</button>
+            <button type="submit" class="primary-btn addToCart" style="border:none;">Thêm vào giỏ hàng</button>
         </div>
     </form>
     <div class="product__details__cart__option d-flex justify-content-center">

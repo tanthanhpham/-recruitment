@@ -22,7 +22,7 @@ use App\Http\Controllers\CartController;
 |
 */
 
-Route::get('admin/login', function () {
+Route::get('admin/', function () {
     return view('admin.users.login');
 });
 Route::post('admin/login', [AdminController::class,'login'])->name('admin.login');
@@ -31,13 +31,13 @@ Route::get('admin/logout', [AdminController::class,'logout'])->name('admin.logou
 //
 Route::middleware(['admin'])->group(function () {
     // Admin Management
-    Route::get('admin/create', [AdminController::class,'create'])->name('admin.create');
-    Route::post('admin/store', [AdminController::class,'store'])->name('admin.store');
-    Route::get('admin/show/{id}', [AdminController::class,'show'])->name('admin.show');
-    Route::get('admin/edit/{id}', [AdminController::class,'edit'])->name('admin.edit');
-    Route::post('admin/change_password/{id}', [AdminController::class,'change_password'])->name('admin.change_password');
-    Route::get('admin/lock/{id}', [AdminController::class,'lock'])->name('admin.lock');
-    Route::get('admin', [AdminController::class,'index'])->name('admin.index');
+    Route::get('admin/user/create', [AdminController::class,'create'])->name('admin.create');
+    Route::post('admin/user/store', [AdminController::class,'store'])->name('admin.store');
+    Route::get('admin/user/show/{id}', [AdminController::class,'show'])->name('admin.show');
+    Route::get('admin/user/edit/{id}', [AdminController::class,'edit'])->name('admin.edit');
+    Route::post('admin/user/change_password/{id}', [AdminController::class,'change_password'])->name('admin.change_password');
+    Route::get('admin/user/lock/{id}', [AdminController::class,'lock'])->name('admin.lock');
+    Route::get('admin/user', [AdminController::class,'index'])->name('admin.index');
     Route::post('admin/checkEmail', [AdminController::class,'checkEmail'])->name('admin.checkEmail');
     Route::post('admin/checkPhone', [AdminController::class,'checkPhone'])->name('admin.checkPhone');
     // Product catagories

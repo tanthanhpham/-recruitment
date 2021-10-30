@@ -37,7 +37,7 @@
                             </div> -->
                             @foreach($product->size as $i => $size)
                                 @if($i==0)
-                                    <h3 id="price">{{$size->product_price->price}} VNĐ <!--<span>70.00</span> --></h3>
+                                    <h3 id="price">{{$size->product_price->price}} đ <!--<span>70.00</span> --></h3>
                                     <!-- <var class="price h4" id="price">{{$size->product_price->price}}</var>  -->
                                     <input type="hidden" id="getPrice" value="{{$size->product_price->price}}">
                                     <input type="hidden" id="getIdPrice" value="{{$size->product_price->id}}">

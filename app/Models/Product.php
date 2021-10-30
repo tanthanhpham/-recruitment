@@ -26,9 +26,9 @@ class Product extends Model
         return $this->belongsToMany('App\Models\Size','product_price',
             'product_id','size_id')->withPivot('price','id')->withTimestamps()->as('product_price');
     }
-    public function products()
-    {
-        return $this->belongsToMany(Product::class);
+   
+    public function categories() {
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
 }

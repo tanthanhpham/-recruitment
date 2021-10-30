@@ -25,10 +25,10 @@
                                             <div class="shop__sidebar__search ">
                                                 <form action="{{route('guest.searchPrice')}}" method="GET" class="d-flex flex-row">
                                                     <div class="col-md-6 m p-0">
-                                                        <input type="text" name="min_price" placeholder="Giá thấp nhất">
+                                                        <input type="text" name="min_price" placeholder="Từ">
                                                     </div>
                                                     <div class="col-md-6 m-0 p-0">
-                                                        <input type="text" name="max_price" placeholder="Giá cao nhất">
+                                                        <input type="text" name="max_price" placeholder="Đến">
                                                     </div>
                                                     <button type="submit">Lọc</button>
                                                 </form>
@@ -46,7 +46,14 @@
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
                                                     @foreach($categories as $cate)
-                                                        <li><a href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a></li>
+                                                        @if($cate->p_category_id == 0)
+                                                            <li><a href="{{route('guest.getCategory',['id' => $cate->id] )}}">{{$cate->name}}</a></li>
+                                                            @foreach($categories as $cate_sub)
+                                                                @if($cate_sub->p_category_id !=0 && $cate_sub->p_category_id== $cate->id)
+                                                                    <li><a href="{{route('guest.getCategory',['id' => $cate_sub->id] )}}">{{$cate_sub->name}}</a></li>
+                                                                @endif
+                                                            @endforeach
+                                                        @endif
                                                     @endforeach
                                                 </ul>
                                             </div>
@@ -83,11 +90,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__right">
-                                    <p>Sắp xếp theo: </p>
-                                    <select>
-                                        <option value="">Sản phẩm mới</option>
-                                        <option value="">Sản phẩm cũ</option>
-                                    </select>
+                                 
                                 </div>
                             </div>
                         </div>
@@ -104,7 +107,7 @@
                                         <a data-toggle="modal" data-target="#exampleModalLong" class="add-cart" onclick="selectProduct('{{$product->id}}')">Xem chi tiết</a>
                                         @foreach($product->size as $i => $size)
                                             @if($i==0)
-                                                <h5>{{$size->product_price->price}} VNĐ</h5>
+                                                <h5>{{$size->product_price->price}} đ</h5>
                                             @endif
                                         @endforeach
                                         
@@ -126,6 +129,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="">
+                                {!!$products->links('pagination::bootstrap-4')!!}
                             </div>
                         </div>
                     </div>

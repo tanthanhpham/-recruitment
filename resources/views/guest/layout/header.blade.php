@@ -1,7 +1,7 @@
 <!-- Page Preloder -->
-<div id="preloder">
+<!-- <div id="preloder">
     <div class="loader"></div>
-</div>
+</div> -->
 
 <!-- Offcanvas Menu Begin -->
 <div class="offcanvas-menu-overlay"></div>
@@ -64,16 +64,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-3">
-                <div class="header__logo">
-                    <a href="/"><img src="{{asset('/logo.png')}}" alt=""></a>
+                <div class="header__logo" style="padding: 0">
+                    <a href="/"><img src="{{asset('/logo.png')}}" alt="" width="60%"></a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
-                    <ul id="menu">
-                        <li class="menu active"><a href="/">Trang chủ</a></li>
+                    <ul id="menu_header">
+                        <li class="menu {{request()->segment(1) == '' ? 'active' : ''}}"><a href="/">Trang chủ</a></li>
                         <li class="menu"><a href="#">Giới thiệu</a></li>
-                        <li class="menu"><a href="{{route('shop.index')}}">Sản phẩm</a></li>
+                        <li class="menu {{request()->segment(1) == 'shop' ? 'active' : ''}}"><a href="{{route('shop.index')}}">Sản phẩm</a></li>
                         <li class="menu"><a href="#">Blog</a></li>
                         <li class="menu"><a href="#">Liên hệ</a></li>
                     </ul>

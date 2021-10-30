@@ -78,8 +78,8 @@
                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <ul class="link-list-opt no-bdr">
-                                                <li><a href="{{URL::to('admin/show/'.$userli->id)}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                <li><a href="{{URL::to('admin/lock/'.$userli->id)}}"><em class="icon ni ni-shield-off"></em><span>Lock/Unlock</span></a></li>
+                                                <li><a href="{{URL::to('admin/user/show/'.$userli->id)}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
+                                                <li><a href="{{URL::to('admin/user/lock/'.$userli->id)}}"><em class="icon ni ni-shield-off"></em><span>Lock/Unlock</span></a></li>
                                             </ul>
                                         </div>
                                     </div>

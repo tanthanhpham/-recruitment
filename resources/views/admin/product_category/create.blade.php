@@ -32,7 +32,15 @@
                                 <option label="empty" value="" data-select2-id="4"></option>
                                 <option value="0">Root Category</option>
                                 @foreach($category as $cate)
-                                    <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                    @if($cate->p_category_id==0)
+                                        <option value="{{$cate->id}}">{{$cate->name}}</option>
+
+                                        @foreach($category as $cate_sub)
+                                            @if($cate_sub->p_category_id != 0 && $cate_sub->p_category_id==$cate->id)
+                                                <option value="{{$cate_sub->id}}">-- {{$cate_sub->name}}</option>
+                                            @endif
+                                        @endforeach
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

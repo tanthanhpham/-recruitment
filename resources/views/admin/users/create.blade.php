@@ -3,7 +3,7 @@
 ])
 
 @section('content')
-<form action="/admin/store" method="POST">
+<form action="{{route('admin.store')}}" method="POST">
     @csrf
     <div class="card card-bordered">
         <div class="card-inner">

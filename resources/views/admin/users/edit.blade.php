@@ -3,7 +3,7 @@
 ])
 
 @section('content')
-<form action="{{URL::to('/admin/change_password/'.$user->id)}}" method="POST">
+<form action="{{URL::to('/admin/user/change_password/'.$user->id)}}" method="POST">
     @csrf
     <div class="card card-bordered">
         <div class="card-inner">

@@ -1,5 +1,5 @@
 @extends('admin.transaction.layout', [
-    'title' => ( $title ?? 'Orders Management' )
+    'title' => ( $title ?? 'Orders List' )
 ])
 
 @section('content')

@@ -101,7 +101,7 @@ class AdminController extends Controller
         } else  $userlock->is_active=0;
         $userlock->save();
 
-        return redirect('admin/')->with('success','Account locked/unlocked successfully');
+        return redirect('admin/user')->with('success','Account locked/unlocked successfully');
     } 
     function checkEmail(Request $request){   
         // echo $request->get('email');

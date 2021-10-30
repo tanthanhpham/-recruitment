@@ -1,5 +1,5 @@
 @extends('admin.product.layout', [
-    'title' => ( $title ?? 'Add product' )
+    'title' => ( $title ?? 'Edit product' )
 ])
 
 @section('content')

@@ -4,31 +4,31 @@
 <!-- Hero Section Begin -->
 <section class="hero">
     <div class="hero__slider owl-carousel">
-        <div class="hero__items set-bg" data-setbg="{{asset('./shop/img/banner2.jpg')}}">
+        <div class="hero__items set-bg" data-setbg="{{asset('./backgr1.jpg')}}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
-                            <h6>Sản phẩm mới</h6>
-                            <h2>Bộ sản phẩm chăm sóc da Dear Klairs</h2>
-                            <p>Bộ sản phẩm chiếc xuất từ trà xanh, cùng với ngải cứu giúp phục hồi và làm dịu làn da nhảy cảm của bạn.</p>
-                            <a href="{{route('shop.index')}}" class="primary-btn">Mua ngay <span class="arrow_right"></span></a>
-                            <div class="hero__social">
+                            <h6></h6>
+                            <h2></h2>
+                            <p></p>
+                            <!-- <a href="{{route('shop.index')}}" class="primary-btn"></a> -->
+                            <!-- <div class="hero__social">
                                 <a href="https://www.facebook.com/ptthanhhhh"  target="_blank"><i class="fa fa-facebook"></i></a>
                                 <a href="https://www.instagram.com/ptthanhhhh/"  target="_blank"><i class="fa fa-instagram"></i></a>
                                 <a href="https://shopee.vn/"  target="_blank"><i class="fa fa-shopping-cart" ></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hero__items set-bg" data-setbg="{{asset('./shop/img/banner1.png')}}">
+        <div class="hero__items set-bg" data-setbg="{{asset('./backgr2.jpg')}}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
-                            <h6>Summer Collection</h6>
+                            <!-- <h6>Summer Collection</h6>
                             <h2>Fall - Winter Collections 2030</h2>
                             <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
                             commitment to exceptional quality.</p>
@@ -38,7 +38,7 @@
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-pinterest"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                                 <a href="{{route('shop.show',['id'=>$product->id])}}" class="add-cart">Chi tiết sản phẩm</a>
                                 @foreach($product->size as $i => $size)
                                     @if($i==0)
-                                        <h5>{{$size->product_price->price}} VNĐ</h5>
+                                        <h5>{{$size->product_price->price}} đ</h5>
                                     @endif
                                 @endforeach
                                 <div class="product__color__select">
