@@ -12,15 +12,17 @@ class MailNotify extends Mailable
     use Queueable, SerializesModels;
     public $trans;
     public $products;
+    public $sizes;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($trans,$products)
+    public function __construct($trans,$products,$sizes)
     {
         $this->trans=$trans;
         $this->products=$products;
+        $this->sizes=$sizes;
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Mail;
 use App\Jobs\SendMail;
 use App\Models\Product;
+use App\Models\Size;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,7 @@ class TransactionController extends Controller
     
     public function store(Request $request){
         $products = Product::all();
+        $sizes= Size::all();
         $data=$request->validate([
             'name' => 'required',
             'address' => 'required',
@@ -55,7 +57,7 @@ class TransactionController extends Controller
 
         $trans->orders()->attach($product_order);
         $request->session()->forget('cart');
-        SendMail::dispatch($trans,$products)->delay(now()->addMinute(1));
+        SendMail::dispatch($trans,$products,$sizes)->delay(now()->addMinute(1));
         // dd($product_order);
         return  redirect('/');
     }
@@ -64,18 +66,20 @@ class TransactionController extends Controller
         $user = Auth::guard('admin')->user();
         $trans= Transaction::find($id);
         $products = Product::all();
+        $sizes= Size::all();
         // dd($trans->orders);
         // foreach($trans->order as $item)
-        return view('admin.transaction.show',compact('user','trans','products'));
+        return view('admin.transaction.show',compact('user','trans','products','sizes'));
     }
 
     public function edit($id,$key){
         $user = Auth::guard('admin')->user();
         $products = Product::all();
         $trans= Transaction::find($id);
+        $sizes= Size::all();
         if($key == 'a'){
             $trans->status=1;
-            SendMail::dispatch($trans,$products)->delay(now()->addMinute(1));
+            SendMail::dispatch($trans,$products,$sizes)->delay(now()->addMinute(1));
         }elseif($key == 'c'){
             $trans->status=2;
         }else{

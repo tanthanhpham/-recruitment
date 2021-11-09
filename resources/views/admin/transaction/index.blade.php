@@ -75,7 +75,7 @@
                             </td>
                             <td class="tb-tnx-amount is-alt">
                                 <div class="tb-tnx-total">
-                                    <span class="amount">{{$transaction->total}}</span>
+                                    <span class="amount">{{$transaction->total}} đ</span>
                                 </div>
                                 <div class="tb-tnx-status">
                                     @if($transaction->status==0)

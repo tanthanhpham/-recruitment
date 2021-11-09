@@ -17,15 +17,17 @@ class SendMail implements ShouldQueue
 
     protected $trans;
     protected $products;
+    protected $sizes;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($trans,$products)
+    public function __construct($trans,$products,$sizes)
     {
         $this->trans=$trans;
         $this->products=$products;
+        $this->sizes=$sizes;
     }
 
     /**
@@ -35,6 +37,6 @@ class SendMail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->trans->email)->send(new MailNotify($this->trans,$this->products));
+        Mail::to($this->trans->email)->send(new MailNotify($this->trans,$this->products,$this->sizes));
     }
 }

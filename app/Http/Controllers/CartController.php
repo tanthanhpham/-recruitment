@@ -76,7 +76,7 @@ class CartController extends Controller
             $request->session()->put('cart',$newCart);
         }
         // dd(session('cart'));
-        return redirect()->route('guest.index');
+        return redirect()->route('shop.index');
     }
 
     public function show(){

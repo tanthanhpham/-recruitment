@@ -93,7 +93,11 @@
                <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;x  {{$item->orders->number}}
             <td>
-                {{$item->size_id}}
+                @foreach($sizes as $size)
+                    @if($size->id == $item->size_id)
+                        {{$size->name}}
+                    @endif
+                @endforeach
             </td>
             <td>
                 @php

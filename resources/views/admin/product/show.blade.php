@@ -8,9 +8,9 @@
         <div class="card-inner">
             <div class="row pb-5">
                 <div class="col-lg-12">
-                    <div class="product-gallery mr-xl-1 mr-xxl-5">
+                    <!-- <div class="product-gallery mr-xl-1 mr-xxl-5">
                        
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-lg-6">
@@ -20,7 +20,14 @@
                 </div><!-- .col -->
                 <div class="col-lg-6">
                     <div class="product-info mt-5 mr-xxl-5">
-                        <h4 class="product-price text-primary">$78.00 <small class="text-muted fs-14px">$98.00</small></h4>
+                        <h4 class="product-price text-primary">
+                            @foreach($product->size as $j => $size)
+                            @endforeach
+
+                            @foreach($product->size as $i => $size)
+                                <small class="text-muted fs-14px">{{$size->product_price->price}}đ @if($i!=$j) - @endif</small>
+                            @endforeach
+                        </h4>
                         <h2 class="product-title">{{$product->name}}</h2>
                         <div class="product-excrept text-soft">
                             <p class="lead">{!!$product->discription!!}</p>

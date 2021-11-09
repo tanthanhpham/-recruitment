@@ -7,10 +7,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="{{asset('/B.png')}}">
     <!-- Page Title  -->
-    <title>Buedue Shop</title>
+    <title>Bong beauty</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{ asset('dashlite/assets/css/dashlite.css?ver=2.5.0') }}">
     <link id="skin-default" rel="stylesheet" href="{{ asset('dashlite/assets/css/theme.css?ver=2.5.0') }}">
-  
-
- 

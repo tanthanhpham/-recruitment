@@ -50,7 +50,7 @@
                                         <div class="data-item" data-toggle="modal" data-target="#profile-edit">
                                             <div class="data-col">
                                                 <span class="data-label">Status</span>
-                                                <span class="data-value">@if($user->status == 0) Blocked @else Active @endif</span>
+                                                <span class="data-value">@if($user->is_active == 0) Blocked @else Active @endif</span>
                                             </div>
                                             <div class="data-col data-col-end"><span class=""></span></div>
                                         </div><!-- data-item -->

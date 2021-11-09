@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label" for="gender">Sex / Gender</label>
                             <div class="form-control-wrap">
@@ -70,7 +70,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label" for="new_password">Password</label>

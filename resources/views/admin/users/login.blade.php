@@ -1,16 +1,4 @@
-<!-- <form action="/admin/login" method="POST">
-    @csrf
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,13 +8,14 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" href="{{asset('/B.png')}}">
     <style>
         .login {
         min-height: 100vh;
         }
 
         .bg-image {
-        background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200');
+        background-image: url('./cover.jpg');
         background-size: cover;
         background-position: center;
         }
@@ -66,18 +55,18 @@
                   <label for="floatingPassword">Password</label>
                 </div>
 
-                <div class="form-check mb-3">
+                <!-- <div class="form-check mb-3">
                   <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
                   <label class="form-check-label" for="rememberPasswordCheck">
                     Remember password
                   </label>
-                </div>
+                </div> -->
 
                 <div class="d-grid">
                   <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
-                  <div class="text-center">
+                  <!-- <div class="text-center">
                     <a class="small" href="#">Forgot password?</a>
-                  </div>
+                  </div> -->
                 </div>
 
               </form>

@@ -4,6 +4,9 @@
 
 @section('content')
 <div class="invoice">
+    <!-- <div class="invoice-action">
+        <a class="btn btn-icon btn-lg btn-white btn-dim btn-outline-primary" href="html/invoice-print.html" target="_blank"><em class="icon ni ni-printer-fill"></em></a>
+    </div> -->
     <div class="invoice-wrap">
         <div class="invoice-brand text-center">
             <img src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="">
@@ -50,11 +53,16 @@
                                 @foreach($products as $product)
                                     @if($product->id == $item->product_id)
                                         {{$product->name}}
-                                <!-- Dashlite - Conceptual App Dashboard - Regular License</td> -->
                                     @endif
                                 @endforeach
                                 <td> {{$item->price}}</td>
-                            <td>{{$item->size_id}}</td>
+                            <td>
+                                @foreach($sizes as $size)
+                                    @if($size->id == $item->size_id)
+                                        {{$size->name}}
+                                    @endif
+                                @endforeach
+                            </td>
                             <td>
                                 {{$item->orders->number}}
                             </td>
