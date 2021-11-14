@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="nk-footer-wrap">
             <div class="nk-footer-copyright"> &copy; <a
-                    href="/admin/products" target="_blank">Bong Beauty</a>
+                    href="/admin/products">Bong Beauty</a>
             </div>
         </div>
     </div>

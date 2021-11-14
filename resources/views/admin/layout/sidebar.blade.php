@@ -5,7 +5,7 @@
             <a href="#" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
         </div>
         <div class="nk-sidebar-brand">
-            <a href="\admin" class="logo-link nk-sidebar-logo nk-menu-text">
+            <a href="\admin\products" class="logo-link nk-sidebar-logo nk-menu-text">
                 <img class="logo-light logo-img" src="{{asset('/logo.png')}}" srcset="./images/logo2x.png 3x" alt="logo">
             </a>
         </div>

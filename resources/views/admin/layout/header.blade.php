@@ -2,14 +2,9 @@
     <div class="container-fluid">
         <div class="nk-header-wrap">
             <div class="nk-menu-trigger d-xl-none ml-n1">
-                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                <a class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
             </div>
-            <div class="nk-header-brand d-xl-none">
-                <a href="/" class="logo-link"> 
-                    <img class="logo-light logo-img" src="{{ asset('logo.png') }}"  alt="logo">
-                    <img class="logo-dark logo-img" src="{{ asset('logo-dark-1.png') }}"  alt="logo-dark">
-                </a>
-            </div><!-- .nk-header-brand -->
+            
             <div class="nk-header-news d-none d-xl-block">
                 <div class="nk-news-list">
                     <a class="nk-news-item" href="#">
