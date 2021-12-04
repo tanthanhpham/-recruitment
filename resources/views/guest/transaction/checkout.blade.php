@@ -16,7 +16,7 @@
                             </div>
                             <div class="checkout__input">
                                 <p>Địa chỉ<span>*</span></p>
-                                <input type="text" name="address" id="address" placeholder="Số nhà, tên đường, quận/huyện..." class="checkout__input__add">
+                                <input type="text" name="address" id="address" placeholder="Số nhà, tên đường, quận/huyện..."  class="checkout__input__add">
                                 <span id="error_address"></span>
                             </div>
                             <div class="row">
@@ -32,7 +32,6 @@
                                         <p>Email<span>*</span></p>
                                         <input type="text" name="email" id="email">
                                         <span id="error_email"></span>
-
                                     </div>
                                 </div>
                             </div>

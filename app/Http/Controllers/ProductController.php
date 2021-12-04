@@ -81,7 +81,7 @@ class ProductController extends Controller
         }
         $product->size()->attach($product_size);
        
-        return redirect('admin/products')->with('success','Updated');
+        return redirect('admin/products')->with('success','Thêm sản phẩm thành công');
     }
 
     public function edit($id){
@@ -123,7 +123,7 @@ class ProductController extends Controller
         $product->ingredient = $data['ingredient'];
         $product->save();
 
-        return redirect('admin/products')->with('success','Updated');
+        return redirect('admin/products')->with('success','Cập nhật thông tin sản phẩm thành công');
     }
 
     public function show($id){
@@ -142,7 +142,7 @@ class ProductController extends Controller
         $product=Product::find($id);
         $product->size()->detach();
         Product::where('id',$id)->delete();
-        return redirect('admin/products')->with('success','Deleted');
+        return redirect('admin/products')->with('success','Xóa sản phẩm thành công');
     }
 
     public function update_price($id){
@@ -183,7 +183,7 @@ class ProductController extends Controller
         }
         // dd($product_size);
         $product->size()->sync($product_size);
-        return redirect('admin/products')->with('success','Updated');
+        return redirect('admin/products')->with('success','Cập nhật giá sản phẩm thành công');
     }
 
 }

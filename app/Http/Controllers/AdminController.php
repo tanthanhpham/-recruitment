@@ -10,6 +10,10 @@ use App\Models\Admin;
 
 class AdminController extends Controller
 {
+    public function signup(){
+        return view('admin.users.login');
+    }
+
     public function login(Request $request){
         $credentials = $request->only('email','password');
         $user = Admin::where('email',$request->email)->first();
@@ -18,7 +22,7 @@ class AdminController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             if($user->is_active == 0) {
                 return view('admin.users.login');
-            }else return redirect()->route('product.index');
+            }else return redirect()->route('transaction.index');
         }else {
             return view('admin.users.login');
         };
@@ -33,7 +37,7 @@ class AdminController extends Controller
 
     public function logout(){
         Auth::guard('admin')->logout();
-        return redirect('admin/login');
+        return redirect('admin/');
     }
 
     public function create(){
@@ -57,7 +61,7 @@ class AdminController extends Controller
         $user->save();
         // $user = $this->admin->create($validated_data);
 
-        return redirect()->route('admin.index', ['user' => $user])->with('success', 'Account successfully created');
+        return redirect()->route('admin.index', ['user' => $user])->with('success', 'Thêm tài khoản thành công');
 
     }
     
@@ -82,13 +86,13 @@ class AdminController extends Controller
         ]);
 
         if (!Hash::check($request->password, $userPassword)) {
-            return back()->withErrors(['current_password'=>'password not match']);
+            return back()->withErrors(['current_password'=>'Mật khẩu không trùng khớp']);
         }
 
         $user->password = Hash::make($request->newpassword);
         $user->save();
 
-        return redirect()->route('admin.index', ['user' => $user])->with('success','password successfully updated');
+        return redirect()->route('admin.index', ['user' => $user])->with('success','Thay đổi mật khẩu thành công');
     }
 
     public function lock($id){
@@ -101,7 +105,7 @@ class AdminController extends Controller
         } else  $userlock->is_active=0;
         $userlock->save();
 
-        return redirect('admin/user')->with('success','Account locked/unlocked successfully');
+        return redirect('admin/user')->with('success','Tài khoản đã được thay đổi trạng thái');
     } 
     function checkEmail(Request $request){   
         // echo $request->get('email');

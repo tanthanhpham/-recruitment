@@ -22,9 +22,10 @@ use App\Http\Controllers\CartController;
 |
 */
 
-Route::get('admin/', function () {
-    return view('admin.users.login');
-});
+// Route::get('admin/', function () {
+//     return view('admin.users.login');
+// });
+Route::get('admin/', [AdminController::class,'signup'])->name('admin.signup');
 Route::post('admin/login', [AdminController::class,'login'])->name('admin.login');
 Route::get('admin/logout', [AdminController::class,'logout'])->name('admin.logout');
 

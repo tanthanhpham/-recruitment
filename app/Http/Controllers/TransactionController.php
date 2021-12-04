@@ -86,13 +86,13 @@ class TransactionController extends Controller
             $trans->status=3;
         }
         $trans->save();
-        return  redirect('admin/transactions/');
+        return  redirect('admin/transactions/')->with('success','Cập nhật trạng thái giao dịch thành công');
     }
 
     public function delete($id){
         $trans=Transaction::find($id);
         $trans->orders()->detach();
         Transaction::where('id',$id)->delete();
-        return redirect('admin/transactions')->with('success','Deleted');
+        return redirect('admin/transactions')->with('success','Xóa giao dịch thành công');
     }
 }
