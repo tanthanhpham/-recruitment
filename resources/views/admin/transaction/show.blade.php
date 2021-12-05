@@ -55,7 +55,7 @@
                                         {{$product->name}}
                                     @endif
                                 @endforeach
-                                <td> {{$item->price}}</td>
+                                <td> <?php echo number_format($item->price)."đ"; ?></td>
                             <td>
                                 @foreach($sizes as $size)
                                     @if($size->id == $item->size_id)
@@ -70,7 +70,7 @@
                                 @php
                                     $price=$item->price*$item->orders->number
                                 @endphp
-                                {{$price}}
+                                <?php echo number_format($price)."đ"; ?>
                             </td>
                         </tr>
                         @endforeach
@@ -80,12 +80,7 @@
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="3">Subtotal</td>
-                            <td>{{$trans->total}}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td colspan="3">Grand Total</td>
-                            <td>{{$trans->total}}</td>
+                            <td><?php echo number_format($trans->total)."đ"; ?></td>
                         </tr>
                     </tfoot>
                 </table>

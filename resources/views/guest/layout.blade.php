@@ -27,12 +27,6 @@
     <script src="{{asset('shop/js/main.js')}}"></script>
     @stack('footer')
     <script>
-        $("#menu_header li").on("click",function () {
-            $("#menu_header li").removeClass("active");
-            $(this).addClass("active");   
-        });
-    </script>
-    <script>
 
     </script>
 </body>

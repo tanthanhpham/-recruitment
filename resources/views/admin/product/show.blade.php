@@ -25,7 +25,8 @@
                             @endforeach
 
                             @foreach($product->size as $i => $size)
-                                <small class="text-muted fs-14px">{{$size->product_price->price}}đ @if($i!=$j) - @endif</small>
+                                <small class="text-muted fs-14px">
+                                <?php echo number_format($size->product_price->price)."đ"; ?> @if($i!=$j) - @endif</small>
                             @endforeach
                         </h4>
                         <h2 class="product-title">{{$product->name}}</h2>

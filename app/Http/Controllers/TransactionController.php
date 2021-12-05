@@ -79,15 +79,19 @@ class TransactionController extends Controller
         $sizes= Size::all();
         if($key == 'a'){
             $trans->status=1;
+            $trans->save();
             SendMail::dispatch($trans,$products,$sizes)->delay(now()->addMinute(1));
         }elseif($key == 'c'){
             $trans->status=2;
+            $trans->save();
+            SendMail::dispatch($trans,$products,$sizes)->delay(now()->addMinute(1));
         }else{
             $trans->status=3;
+            $trans->save();
         }
-        $trans->save();
         return  redirect('admin/transactions/')->with('success','Cập nhật trạng thái giao dịch thành công');
     }
+    
 
     public function delete($id){
         $trans=Transaction::find($id);

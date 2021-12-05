@@ -107,7 +107,7 @@
                                         <a data-toggle="modal" data-target="#exampleModalLong" class="add-cart" onclick="selectProduct('{{$product->id}}')">Xem chi tiết</a>
                                         @foreach($product->size as $i => $size)
                                             @if($i==0)
-                                                <h5>{{$size->product_price->price}} đ</h5>
+                                                <h5> <?php echo number_format($size->product_price->price,0)."đ"; ?></h5>
                                             @endif
                                         @endforeach
                                         

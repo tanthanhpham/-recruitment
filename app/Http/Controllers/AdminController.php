@@ -11,7 +11,12 @@ use App\Models\Admin;
 class AdminController extends Controller
 {
     public function signup(){
-        return view('admin.users.login');
+        if (Auth::guard('admin')->check()) {
+            return redirect()->route('transaction.index');
+        }else {
+            return view('admin.users.login');
+        }
+        
     }
 
     public function login(Request $request){

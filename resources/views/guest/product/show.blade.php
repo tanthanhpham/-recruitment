@@ -21,31 +21,25 @@
                 </div>
             </div>
         </div>
+       
         <div class="product__details__content">
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="product__details__text">
                             <h4>{{$product->name}}</h4>
-                            <!-- <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <span> - 5 Reviews</span>
-                            </div> -->
                             @foreach($product->size as $i => $size)
                                 @if($i==0)
-                                    <h3 id="price">{{$size->product_price->price}} đ <!--<span>70.00</span> --></h3>
-                                    <!-- <var class="price h4" id="price">{{$size->product_price->price}}</var>  -->
+                                    <h3 id="price"> 
+                                        <?php echo number_format($size->product_price->price,0)."đ"; ?>
+                                    </h3>
                                     <input type="hidden" id="getPrice" value="{{$size->product_price->price}}">
                                     <input type="hidden" id="getIdPrice" value="{{$size->product_price->id}}">
                                 @endif
                                 
                             @endforeach
-                          
-                            <p>{!!$product->discription!!}</p>
+                            <div style="text-align: left;">{!!$product->discription!!}</div>
+                            
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
@@ -179,7 +173,6 @@
 				type:"GET",
 				data:  { size:size, price:price, id:id,number:number},
 				success: function(result){
-                    console.log(result);
 					alertify.notify('Thêm sản phẩm thành công','primary');
 					$('#cart').html(result);
 				}

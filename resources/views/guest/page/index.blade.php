@@ -74,7 +74,7 @@
                                 <a href="{{route('shop.show',['id'=>$product->id])}}" class="add-cart">Chi tiết sản phẩm</a>
                                 @foreach($product->size as $i => $size)
                                     @if($i==0)
-                                        <h5>{{$size->product_price->price}} đ</h5>
+                                        <h5> <?php echo number_format($size->product_price->price,0)."đ"; ?></h5>
                                     @endif
                                 @endforeach
                                 <div class="product__color__select">
@@ -104,15 +104,26 @@
             </div>
         </div>
         <div class="row">
-            @foreach($brands as $i=> $brand)
-                @if($i < 5 && $i!=1)
-                    <div class="col-lg-3 col-md-4 col-sm-4">
-                        <div class="blog__item">
-                            <div class="blog__item__pic set-bg" data-setbg="{{asset('storage/'.$brand->image)}}"></div>
-                        </div>
-                    </div>
-                @endif
-            @endforeach
+            <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="{{asset('homepage/brand1.png')}}"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="{{asset('homepage/brand2.png')}}"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="{{asset('homepage/brand3.png')}}"></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="{{asset('homepage/brand4.png')}}"></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

@@ -83,7 +83,7 @@
                             <div class="nk-tb-col tb-col-sm">
                                 <span class="tb-lead">
                                     @foreach($product->size as $price)
-                                        {{$price->product_price->price}}
+                                        <?php echo number_format($price->product_price->price)."đ"; ?>
                                     @endforeach
                                 </span>
                             </div>

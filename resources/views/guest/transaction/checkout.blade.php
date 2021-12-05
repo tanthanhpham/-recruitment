@@ -50,12 +50,12 @@
                                     @endphp
                                     @if (Session::has('cart')!=null)
                                         @foreach(Session::get('cart')->products as $product)
-                                            <li>{{$i++}}. {{$product['product']->name}} x {{$product['quanty']}} <span>{{$product['price']}} đ</span></li>
+                                            <li>{{$i++}}. {{$product['product']->name}} x {{$product['quanty']}} <span><?php echo number_format($product['price'],0)."đ"; ?></span></li>
                                         @endforeach
                                     @endif
                                 </ul>
                                 <ul class="checkout__total__all">
-                                    <li>Tổng <span>{{Session::get('cart')->totalPrice}} đ</span></li>
+                                    <li>Tổng <span><?php echo number_format(Session::get('cart')->totalPrice,0)."đ"; ?></span></li>
                                     <input type="hidden" name="total" value="{{Session::get('cart')->totalPrice}}">
                                 </ul>
                                 <div>

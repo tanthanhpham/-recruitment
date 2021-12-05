@@ -27,8 +27,9 @@
                                                     @php
                                                     $price=$product['price']/$product['quanty'];
                                                     @endphp
-                                                    {{$price}} đ
+                                                  
                                                 </h6>
+                                                <?php echo number_format($price)."đ"; ?>
                                                 <h6>
                                                     {{$product['size']}} 
                                                 </h6>
@@ -50,7 +51,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="cart__price" id="priceshow{{$product['id_price']}}>{{$product['price']}}">{{$product['price']}} đ</td>
+                                        <td class="cart__price" id="priceshow{{$product['id_price']}}>{{$product['price']}}"><?php echo number_format($product['price'])."đ"; ?></td>
                                         <td class="cart__close" onclick="deleteCart('{{$product['id_price'] }}')" class="deleteItem"><i class="fa fa-close" ></i></td>
                                         <input type="hidden" id="price{{$product['id_price']}}" value="{{$product['price']}}">
                                         <input type="hidden" class="idPrice" value=" {{$product['id_price'] }} ">
@@ -76,7 +77,7 @@
                     <div class="cart__total">
                         <h6>Tổng giỏ hàng</h6>
                         <ul>
-                            <li>Tổng tiền <span  id="totalPrice">{{Session::get('cart')->totalPrice}} đ</span> </li>
+                            <li>Tổng tiền <span  id="totalPrice"><?php echo number_format(Session::get('cart')->totalPrice)."đ"; ?></span> </li>
                         </ul>
                         <a href="{{route('guest.checkout')}}" class="primary-btn">Tiến hành thanh toán</a>
                     </div>
