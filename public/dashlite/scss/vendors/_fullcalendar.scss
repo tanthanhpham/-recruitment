@@ -562,7 +562,7 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 .fc .fc-bg-event,
   .fc .fc-non-business,
   .fc .fc-highlight {
-    /* will always have a harness with position:relative/absolute, so absolutely expand */
+    /* will always have a harness with positions:relative/absolute, so absolutely expand */
     position: absolute;
     top: 0;
     left: 0;

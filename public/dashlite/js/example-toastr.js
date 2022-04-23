@@ -3,14 +3,14 @@
 
     // Uses
     // NioApp.Toast(message, type, {attr});
-    // 
-    // @message     = 'Your message' 
-    // @type        = 'info|success|warning|error',  
-    // @attr        = {position: 'bottom-right', icon: 'auto', ui: ''}
-    // 
+    //
+    // @message     = 'Your message'
+    // @type        = 'info|success|warning|error',
+    // @attr        = {positions: 'bottom-right', icon: 'auto', ui: ''}
+    //
     // attr.ui used for additonal class as is-dark
     // attr.icon used for custom icon
-    // attr.position used for position of the msg.
+    // attr.positions used for positions of the msg.
 
     // Example Trigger
     $('.eg-toastr-default').on("click", function(e){
@@ -33,7 +33,7 @@
         toastr.clear();
         NioApp.Toast('This is a note for bottom left toast message.', 'info', {position: 'bottom-left'});
     });
-    $('.eg-toastr-bottom-full').on("click", function(e){ 
+    $('.eg-toastr-bottom-full').on("click", function(e){
         e.preventDefault();
         toastr.clear();
         NioApp.Toast('This is a note for bottom full width toast message.', 'info', {position: 'bottom-full'});
@@ -41,17 +41,17 @@
     $('.eg-toastr-top-center').on("click", function(e){
         e.preventDefault();
         toastr.clear();
-        NioApp.Toast('This is a note for top center toast message.', 'info', {position: 'top-center'}); 
+        NioApp.Toast('This is a note for top center toast message.', 'info', {position: 'top-center'});
     });
     $('.eg-toastr-top-right').on("click", function(e){
         e.preventDefault();
         toastr.clear();
-        NioApp.Toast('This is a note for top right toast message.', 'info', {position: 'top-right'}); 
+        NioApp.Toast('This is a note for top right toast message.', 'info', {position: 'top-right'});
     });
     $('.eg-toastr-top-left').on("click", function(e){
         e.preventDefault();
         toastr.clear();
-        NioApp.Toast('This is a note for top left toast message.', 'info', {position: 'top-left'}); 
+        NioApp.Toast('This is a note for top left toast message.', 'info', {position: 'top-left'});
     });
     $('.eg-toastr-top-full').on("click", function(e){
         e.preventDefault();

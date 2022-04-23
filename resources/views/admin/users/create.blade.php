@@ -91,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-                  
+
                     <div class="col-md-12">
                         <div class="form-group d-flex justify-content-center">
                             <button type="submit" id="register" class="btn btn-lg btn-primary">Save Informations</button>
@@ -115,7 +115,7 @@
             var email = $('#email').val();
             var _token = $('input[name="_token"]').val();
             var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            if(!filter.test(email)){    
+            if(!filter.test(email)){
                 $('#email').addClass('has-error');
                 $('#error_email').html('<label class="text-danger">Invalid email</label>');
                 $('#register').attr('disabled', 'disabled');
@@ -136,7 +136,7 @@
                         }
                     }
                 })
-               
+
             }
         });
     });
@@ -163,7 +163,7 @@
                 })
         });
     });
-    
+
 </script>
 
-@enpush
+@endpush

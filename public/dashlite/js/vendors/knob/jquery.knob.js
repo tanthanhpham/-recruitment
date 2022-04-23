@@ -60,8 +60,8 @@
         this.g = null; // deprecated 2D graphics context for 'pre-rendering'
         this.v = null; // value ; mixed array or integer
         this.cv = null; // change value ; not commited value
-        this.x = 0; // canvas x position
-        this.y = 0; // canvas y position
+        this.x = 0; // canvas x positions
+        this.y = 0; // canvas y positions
         this.w = 0; // canvas width
         this.h = 0; // canvas height
         this.$c = null; // jQuery canvas element

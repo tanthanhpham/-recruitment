@@ -4,17 +4,10 @@
             <div class="nk-menu-trigger d-xl-none ml-n1">
                 <a class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
             </div>
-            
+
             <div class="nk-header-news d-none d-xl-block">
                 <div class="nk-news-list">
                     <a class="nk-news-item" href="#">
-                        <!-- <div class="nk-news-icon">
-                            <em class="icon ni ni-card-view"></em>
-                        </div> -->
-                        <!-- <div class="nk-news-text">
-                            <p>Còn 10 đơn hàng cần xử lý</span></p>
-                            <em class="icon ni ni-external"></em>
-                        </div> -->
                     </a>
                 </div>
             </div><!-- .nk-header-news -->
@@ -37,9 +30,9 @@
                                 <div class="user-card">
                                     <div class="user-avatar">
                                         <span>
-                                            @php 
+                                            @php
                                                 $arrName = explode(" ", $user->name);
-                                                $lastName = array_pop($arrName); 
+                                                $lastName = array_pop($arrName);
                                                 $firstLetter=substr($lastName,0,1);
                                             @endphp
                                             {{$firstLetter}}
@@ -65,7 +58,7 @@
                             </div>
                         </div>
                     </li><!-- .dropdown -->
-                  
+
                 </ul><!-- .nk-quick-nav -->
             </div><!-- .nk-header-tools -->
         </div><!-- .nk-header-wrap -->

@@ -1,16 +1,14 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ProductCategoryController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\ShopController;
-use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\CartController;
-
-
+use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\FieldController;
+use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PositionController;
+use App\Http\Controllers\SalaryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,78 +39,66 @@ Route::middleware(['admin'])->group(function () {
     Route::get('admin/user', [AdminController::class,'index'])->name('admin.index');
     Route::post('admin/checkEmail', [AdminController::class,'checkEmail'])->name('admin.checkEmail');
     Route::post('admin/checkPhone', [AdminController::class,'checkPhone'])->name('admin.checkPhone');
-    // Product catagories
-    Route::get('admin/product_categories', [ProductCategoryController::class,'index'])->name('product_category.index');
-    Route::get('admin/product_categories/create', [ProductCategoryController::class,'create'])->name('product_category.create');
-    Route::get('admin/product_categories/store', [ProductCategoryController::class,'store'])->name('product_category.store');
-    Route::get('admin/product_categories/edit/{id}', [ProductCategoryController::class,'edit'])->name('product_category.edit');
-    Route::get('admin/product_categories/update/{id}', [ProductCategoryController::class,'update'])->name('product_category.update');
-    Route::get('admin/product_categories/delete/{id}', [ProductCategoryController::class,'delete'])->name('product_category.delete');
-    // Brands
-    Route::get('admin/brands', [BrandController::class,'index'])->name('brand.index');
-    Route::get('admin/brands/create', [BrandController::class,'create'])->name('brand.create');
-    Route::post('admin/brands/store', [BrandController::class,'store'])->name('brand.store');
-    Route::get('admin/brands/edit/{id}', [BrandController::class,'edit'])->name('brand.edit');
-    Route::post('admin/brands/update/{id}', [BrandController::class,'update'])->name('brand.update');
-    Route::get('admin/brands/delete/{id}', [BrandController::class,'delete'])->name('brand.delete');
-    // Products
-    Route::get('admin/products', [ProductController::class,'index'])->name('product.index');
-    Route::get('admin/products/create', [ProductController::class,'create'])->name('product.create');
-    Route::post('admin/products/store', [ProductController::class,'store'])->name('product.store');
-    Route::get('admin/products/edit/{id}', [ProductController::class,'edit'])->name('product.edit');
-    Route::post('admin/products/update/{id}', [ProductController::class,'update'])->name('product.update');
-    Route::get('admin/products/delete/{id}', [ProductController::class,'delete'])->name('product.delete');
-    Route::get('admin/products/show/{id}', [ProductController::class,'show'])->name('product.show');
-    Route::get('admin/products/update_price/{id}', [ProductController::class,'update_price'])->name('product.update_price');
-    Route::post('admin/products/store_price/{id}', [ProductController::class,'store_price'])->name('product.store_price');
-    //Transaction
-    Route::get('admin/transactions/', [TransactionController::class,'index'])->name('transaction.index');
-    Route::get('admin/transactions/show/{id}', [TransactionController::class,'show'])->name('transaction.show');
-    Route::get('admin/transactions/edit/{id}{key}', [TransactionController::class,'edit'])->name('transaction.edit');
-    Route::get('admin/transactions/update/{id}', [TransactionController::class,'update'])->name('transaction.update');
-    Route::get('admin/transactions/delete/{id}', [TransactionController::class,'delete'])->name('transaction.delete');
+
+    Route::get('admin/certificate',[CertificateController::class,'index'])->name('certificate.index');
+    Route::get('admin/certificate/create',[CertificateController::class,'create'])->name('certificate.create');
+    Route::post('admin/certificate/store',[CertificateController::class,'store'])->name('certificate.store');
+    Route::get('admin/certificate/edit/{id}',[CertificateController::class,'edit'])->name('certificate.edit');
+    Route::post('admin/certificate/update/{id}',[CertificateController::class,'update'])->name('certificate.update');
+    Route::get('admin/certificate/delete/{id}',[CertificateController::class,'delete'])->name('certificate.delete');
+
+    Route::get('admin/field',[FieldController::class,'index'])->name('field.index');
+    Route::get('admin/field/create',[FieldController::class,'create'])->name('field.create');
+    Route::post('admin/field/store',[FieldController::class,'store'])->name('field.store');
+    Route::get('admin/field/edit/{id}',[FieldController::class,'edit'])->name('field.edit');
+    Route::post('admin/field/update/{id}',[FieldController::class,'update'])->name('field.update');
+    Route::get('admin/field/delete/{id}',[FieldController::class,'delete'])->name('field.delete');
+
+    Route::get('admin/language',[LanguageController::class,'index'])->name('language.index');
+    Route::post('admin/language/store',[LanguageController::class,'store'])->name('language.store');
+    Route::get('admin/language/edit/{id}',[LanguageController::class,'edit'])->name('language.edit');
+    Route::post('admin/language/update/{id}',[LanguageController::class,'update'])->name('language.update');
+    Route::get('admin/language/delete/{id}',[LanguageController::class,'delete'])->name('language.delete');
+
+    Route::get('admin/position',[PositionController::class,'index'])->name('position.index');
+    Route::post('admin/position/store',[PositionController::class,'store'])->name('position.store');
+    Route::get('admin/position/edit/{id}',[PositionController::class,'edit'])->name('position.edit');
+    Route::post('admin/position/update/{id}',[PositionController::class,'update'])->name('position.update');
+    Route::get('admin/position/delete/{id}',[PositionController::class,'delete'])->name('position.delete');
+
+    Route::get('admin/salary',[SalaryController::class,'index'])->name('salary.index');
+    Route::post('admin/salary/store',[SalaryController::class,'store'])->name('salary.store');
+    Route::get('admin/salary/edit/{id}',[SalaryController::class,'edit'])->name('salary.edit');
+    Route::post('admin/salary/update/{id}',[SalaryController::class,'update'])->name('salary.update');
+    Route::get('admin/salary/delete/{id}',[SalaryController::class,'delete'])->name('salary.delete');
+
 });
 
-// Route::get('lkn',function(){
-//     $products=Product::all();
-//     foreach($products as $product)
-//     {
-//         echo $product->name;
-//         echo '<br>';
-//         foreach($product->size as $size){
-//             echo $size->name;
-//             echo $size->product_price->price;
-//             echo '<br>';
-//         }
-//         echo '<hr>';
-//     }
-// });
+Route::get('/', function () {
+    return view('candidate.homepage.index');
+});
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::get('/', [PageController::class,'index'])->name('guest.index');
+Route::get('employer/create', [EmployerController::class, 'create'])->name('employer.create');
+Route::get('employer/logout', [EmployerController::class, 'logout'])->name('employer.logout');
+Route::get('employer/signin', [EmployerController::class, 'signin'])->name('employer.signin');
+Route::post('employer/login', [EmployerController::class, 'login'])->name('employer.login');
+Route::post('employer/store', [EmployerController::class, 'store'])->name('employer.store');
 
-Route::post('/getPrice', [PageController::class,'getPrice'])->name('guest.getPrice');
-Route::post('/getIdPrice', [PageController::class,'getIdPrice'])->name('guest.getIdPrice');
-Route::get('/getCategory/{id}', [PageController::class,'getCategory'])->name('guest.getCategory');
-Route::get('/getBrand/{id}', [PageController::class,'getBrand'])->name('guest.getBrand');
-Route::get('/search', [PageController::class,'search'])->name('guest.search');
-Route::get('/searchPrice', [PageController::class,'searchPrice'])->name('guest.searchPrice');
+Route::middleware(['employer'])->group(function () {
+    Route::get('employer/', [EmployerController::class, 'index'])->name('employer.index');
 
-Route::get('/checkout', [PageController::class,'checkout'])->name('guest.checkout');
-Route::get('/checkout/home', [PageController::class,'home'])->name('guest.home');
-Route::post('/checkout/store/', [TransactionController::class,'store'])->name('transaction.store');
+    Route::get('employer/user/show/{id}', [EmployerController::class,'show'])->name('employer.show');
+    Route::get('employer/user/edit/{id}', [EmployerController::class,'edit'])->name('employer.edit');
+    Route::post('employer/user/update/{id}', [EmployerController::class,'update'])->name('employer.update');
+    Route::get('employer/user/changePassword', [EmployerController::class,'changePassword'])->name('employer.changePassword');
+    Route::post('employer/user/handleChangePassword', [EmployerController::class,'handleChangePassword'])->name('employer.handleChangePassword');
 
-Route::get('/shop/index', [ShopController::class,'index'])->name('shop.index');
-Route::get('/shop/show/{id}', [ShopController::class,'show'])->name('shop.show');
-Route::get('/findProduct/{id}', [ShopController::class,'find'])->name('shop.find');
-
-Route::get('/cart', [CartController::class,'index'])->name('cart.index');
-Route::get('/addCart/{id}', [CartController::class,'create'])->name('cart.create');
-Route::get('/deleteCart/{id}', [CartController::class,'delete'])->name('cart.delete');
-Route::get('/updateItemCart/{id}', [CartController::class,'update'])->name('cart.update');
-Route::get('/addToCart', [CartController::class,'add'])->name('cart.add');
-Route::get('/showCart', [CartController::class,'show'])->name('cart.show');
+    Route::get('employer/job',[JobController::class,'index'])->name('job.index');
+    Route::get('employer/job/create',[JobController::class,'create'])->name('job.create');
+    Route::post('employer/job/store',[JobController::class,'store'])->name('job.store');
+    Route::get('employer/job/edit/{id}',[JobController::class,'edit'])->name('job.edit');
+    Route::post('employer/job/update/{id}',[JobController::class,'update'])->name('job.update');
+    Route::get('employer/job/delete/{id}',[JobController::class,'delete'])->name('job.delete');
+});
 

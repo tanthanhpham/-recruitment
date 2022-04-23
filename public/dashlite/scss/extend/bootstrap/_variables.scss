@@ -186,7 +186,7 @@ $headings-margin-bottom:      $h-margin-bottom;
 $headings-font-family:        $h-font-family;
 $headings-font-weight:        $h-font-weight;
 $headings-line-height:        $h-line-height;
-$headings-color:              $h-color; 
+$headings-color:              $h-color;
 
 $display1-size:               6rem;
 $display2-size:               5.5rem;
@@ -377,7 +377,7 @@ $custom-switch-indicator-size:                  $switch-indicator-size;
 // $custom-select-background:          escape-svg($custom-select-indicator) no-repeat right $custom-select-padding-x center / $custom-select-bg-size !default; // Used so we can have multiple background elements (e.g., arrow and feedback icon)
 
 // $custom-select-feedback-icon-padding-right: add(1em * .75, (2 * $custom-select-padding-y * .75) + $custom-select-padding-x + $custom-select-indicator-padding) !default;
-// $custom-select-feedback-icon-position:      center right ($custom-select-padding-x + $custom-select-indicator-padding) !default;
+// $custom-select-feedback-icon-positions:      center right ($custom-select-padding-x + $custom-select-indicator-padding) !default;
 // $custom-select-feedback-icon-size:          $input-height-inner-half $input-height-inner-half !default;
 
 // $custom-select-border-width:        $input-border-width !default;

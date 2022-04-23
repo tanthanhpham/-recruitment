@@ -16,7 +16,7 @@ class AdminController extends Controller
         }else {
             return view('admin.users.login');
         }
-        
+
     }
 
     public function login(Request $request){
@@ -27,7 +27,7 @@ class AdminController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             if($user->is_active == 0) {
                 return view('admin.users.login');
-            }else return redirect()->route('transaction.index');
+            }else return redirect()->route('admin.index');
         }else {
             return view('admin.users.login');
         };
@@ -37,7 +37,6 @@ class AdminController extends Controller
         $user = Auth::guard('admin')->user();
         $userlist = Admin::paginate(3);
         return view('admin.users.index', compact('user'), compact('userlist'));
-
     }
 
     public function logout(){
@@ -69,7 +68,7 @@ class AdminController extends Controller
         return redirect()->route('admin.index', ['user' => $user])->with('success', 'Thêm tài khoản thành công');
 
     }
-    
+
     public function show($id){
         $user = Admin::find($id);
         return view('admin.users.show',compact('user'));
@@ -78,7 +77,7 @@ class AdminController extends Controller
     public function edit(){
         $user = Auth::guard('admin')->user();
         return view('admin.users.edit',compact('user'));
-    } 
+    }
 
     public function  change_password(Request $request){
         $user = Auth::guard('admin')->user();
@@ -103,7 +102,7 @@ class AdminController extends Controller
     public function lock($id){
         $user = Auth::guard('admin')->user();
         $userlist = Admin::all();
-        
+
         $userlock = Admin::find($id);
         if($userlock->is_active == 0){
             $userlock->is_active=1;
@@ -111,8 +110,8 @@ class AdminController extends Controller
         $userlock->save();
 
         return redirect('admin/user')->with('success','Tài khoản đã được thay đổi trạng thái');
-    } 
-    function checkEmail(Request $request){   
+    }
+    function checkEmail(Request $request){
         // echo $request->get('email');
         if($request->get('email')){
             $emailcheck = $request->get('email');
@@ -120,10 +119,10 @@ class AdminController extends Controller
             if($data > 0){
                 echo 'exist';
             }
-            
+
         }
     }
-    function checkPhone(Request $request){   
+    function checkPhone(Request $request){
         if($request->get('phone')){
             $phone = $request->get('phone');
             $data = Admin::where('phone', $phone)->count();

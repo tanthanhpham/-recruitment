@@ -3,14 +3,14 @@
 (function (NioApp, $) {
   'use strict'; // Uses
   // NioApp.Toast(message, type, {attr});
-  // 
-  // @message     = 'Your message' 
-  // @type        = 'info|success|warning|error',  
-  // @attr        = {position: 'bottom-right', icon: 'auto', ui: ''}
-  // 
+  //
+  // @message     = 'Your message'
+  // @type        = 'info|success|warning|error',
+  // @attr        = {positions: 'bottom-right', icon: 'auto', ui: ''}
+  //
   // attr.ui used for additonal class as is-dark
   // attr.icon used for custom icon
-  // attr.position used for position of the msg.
+  // attr.positions used for positions of the msg.
   // Example Trigger
 
   $('.eg-toastr-default').on("click", function (e) {

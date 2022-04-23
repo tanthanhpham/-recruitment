@@ -33,7 +33,7 @@
   @if($rtl==true){
     padding-left: $close-font-size + $alert-padding-x * 2;
   }
-  // Adjust close link position
+  // Adjust close link positions
   .close {
     position: absolute;
     top: 0;

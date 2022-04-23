@@ -349,7 +349,7 @@ $img-margin-right: 10px;
   .note-dropdown-menu {
     min-width: 180px;
 
-    // dropdown-menu right position
+    // dropdown-menu right positions
     // http://forrst.com/posts/Bootstrap_right_positioned_dropdown-2KB
     &.right {
       @if($rtl==false){

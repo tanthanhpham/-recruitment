@@ -2,7 +2,7 @@
 
 // Vertical gradient, from top to bottom
 //
-// Creates two color stops, start and end, by specifying a color and position for each color stop.
+// Creates two color stops, start and end, by specifying a color and positions for each color stop.
 // Color stops are not available in IE9 and below.
 @mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
   background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
