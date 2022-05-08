@@ -14,6 +14,7 @@ class EditJobsTable extends Migration
     public function up()
     {
         Schema::table('job', function (Blueprint $table) {
+            $table->string('name');
             $table->string('position');
             $table->string('description');
             $table->string('benefit');
@@ -25,13 +26,6 @@ class EditJobsTable extends Migration
             $table->integer('certificate_id')->unsigned();
             $table->integer('field_id')->unsigned();
             $table->integer('salary_id')->unsigned();
-
-            $table->foreign('rank_id')->references('id')->on('position');
-            $table->foreign('employer_id')->references('id')->on('employer');
-            $table->foreign('certificate_id')->references('id')->on('bangcap');
-            $table->foreign('field_id')->references('id')->on('field');
-            $table->foreign('salary_id')->references('id')->on('language');
-
         });
     }
 

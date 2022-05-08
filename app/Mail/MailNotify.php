@@ -10,19 +10,18 @@ use Illuminate\Queue\SerializesModels;
 class MailNotify extends Mailable
 {
     use Queueable, SerializesModels;
-    public $trans;
-    public $products;
-    public $sizes;
+
+    protected $jobs;
+    protected $employee;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($trans,$products,$sizes)
+    public function __construct($jobs, $employee)
     {
-        $this->trans=$trans;
-        $this->products=$products;
-        $this->sizes=$sizes;
+        $this->jobs = $jobs;
+        $this->employee = $employee;
     }
 
     /**

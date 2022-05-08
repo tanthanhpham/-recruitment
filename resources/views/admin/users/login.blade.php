@@ -8,7 +8,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="shortcut icon" href="{{asset('/B.png')}}">
+    <link rel="shortcut icon" href="{{asset('logo_1.png')}}">
     <style>
         .login {
         min-height: 100vh;
@@ -47,12 +47,12 @@
               <form action="/admin/login" method="POST">
                 @csrf
                 <div class="form-floating mb-3">
-                  <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">Email address</label>
+                  <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                  <label for="floatingInput">Email address <span class="text-danger">*</span></label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="password" name="password"  class="form-control" id="floatingPassword" placeholder="Password">
-                  <label for="floatingPassword">Password</label>
+                  <input type="password" name="password"  class="form-control" id="floatingPassword" placeholder="Password" required>
+                  <label for="floatingPassword">Password <span class="text-danger">*</span></label>
                 </div>
 
                 <!-- <div class="form-check mb-3">

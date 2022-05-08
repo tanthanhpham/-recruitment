@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{asset('logo_1.png')}}">
 
     <link rel="stylesheet" href="{{asset('authtemplate/fonts/icomoon/style.css')}}">
 
@@ -26,15 +27,23 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 order-md-2">
-                <img src="{{asset('authtemplate/images/undraw_file_sync_ot38.svg')}}" alt="Image" class="img-fluid">
+                <img src="{{asset('cover.jpg')}}" alt="Image" class="img-fluid">
             </div>
             <div class="col-md-6 contents">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="mb-4">
                             <h3>Sign In to <strong>JobBoard</strong></h3>
-                            <p class="mb-4">Please update</p>
                         </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form action="{{route('employer.login')}}" method="post">
                             @csrf
                             <div class="form-group first">
@@ -46,7 +55,7 @@
                                 <input type="password" name="password" class="form-control" id="password">
                             </div>
 
-                            <input type="submit" value="Sign up" class="btn text-white btn-block btn-primary">
+                            <input type="submit" value="Sign up" class="btn text-white btn-block btn-primary" style="background: #6576ff">
                         </form>
                     </div>
                 </div>

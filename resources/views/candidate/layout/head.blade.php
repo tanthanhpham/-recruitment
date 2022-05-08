@@ -4,10 +4,10 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="author" content="Jobboard">
 
-<title>JobBoard - Bootstrap HTML5 Job Portal Template</title>
+<title>Recruitment website</title>
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{asset('/jobboard/assets/img/favicon.png')}}">
+<link rel="shortcut icon" href="{{asset('logo.png')}}">
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="{{asset('/jobboard/assets/css/bootstrap.min.css')}}" type="text/css">
 <link rel="stylesheet" href="{{asset('/jobboard/assets/css/jasny-bootstrap.min.css')}}" type="text/css">

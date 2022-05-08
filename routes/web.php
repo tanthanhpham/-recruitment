@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\EmployerAdminController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CertificateController;
@@ -20,9 +25,7 @@ use App\Http\Controllers\SalaryController;
 |
 */
 
-// Route::get('admin/', function () {
-//     return view('admin.users.login');
-// });
+Auth::routes(['verify' => true]);
 Route::get('admin/', [AdminController::class,'signup'])->name('admin.signup');
 Route::post('admin/login', [AdminController::class,'login'])->name('admin.login');
 Route::get('admin/logout', [AdminController::class,'logout'])->name('admin.logout');
@@ -72,14 +75,23 @@ Route::middleware(['admin'])->group(function () {
     Route::post('admin/salary/update/{id}',[SalaryController::class,'update'])->name('salary.update');
     Route::get('admin/salary/delete/{id}',[SalaryController::class,'delete'])->name('salary.delete');
 
+    Route::get('admin/account',[UserController::class,'index'])->name('admin.account.index');
+    Route::get('admin/account/delete/{id}',[UserController::class,'delete'])->name('admin.account.delete');
 });
 
-Route::get('/', function () {
-    return view('candidate.homepage.index');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::post('/search', [HomeController::class, 'search'])->name('home.search');
+Route::get('/searchByKey', [HomeController::class, 'searchByKey'])->name('home.searchByKey');
+Route::get('/jobDetail/{id}', [HomeController::class, 'show'])->name('home.job.show');
 
 
-Route::get('employer/create', [EmployerController::class, 'create'])->name('employer.create');
+Route::get('users/signup', [CandidateController::class, 'signup'])->name('candidate.signup');
+Route::get('users/logout', [CandidateController::class, 'logout'])->name('candidate.logout');
+Route::post('users/store', [CandidateController::class, 'store'])->name('candidate.store');
+Route::get('users/signin', [CandidateController::class, 'signin'])->name('candidate.signin');
+Route::post('users/login', [CandidateController::class, 'login'])->name('candidate.login');
+
+Route::get('employer/signup', [EmployerController::class, 'create'])->name('employer.create');
 Route::get('employer/logout', [EmployerController::class, 'logout'])->name('employer.logout');
 Route::get('employer/signin', [EmployerController::class, 'signin'])->name('employer.signin');
 Route::post('employer/login', [EmployerController::class, 'login'])->name('employer.login');
@@ -95,6 +107,7 @@ Route::middleware(['employer'])->group(function () {
     Route::post('employer/user/handleChangePassword', [EmployerController::class,'handleChangePassword'])->name('employer.handleChangePassword');
 
     Route::get('employer/job',[JobController::class,'index'])->name('job.index');
+    Route::get('employer/job/show/{id}', [JobController::class,'show'])->name('job.show');
     Route::get('employer/job/create',[JobController::class,'create'])->name('job.create');
     Route::post('employer/job/store',[JobController::class,'store'])->name('job.store');
     Route::get('employer/job/edit/{id}',[JobController::class,'edit'])->name('job.edit');
@@ -102,3 +115,12 @@ Route::middleware(['employer'])->group(function () {
     Route::get('employer/job/delete/{id}',[JobController::class,'delete'])->name('job.delete');
 });
 
+Route::middleware(['user'])->group(function () {
+    Route::post('users/apply', [CandidateController::class, 'apply'])->name('candidate.apply');
+    Route::get('users/show/{id}', [CandidateController::class, 'show'])->name('candidate.show');
+
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

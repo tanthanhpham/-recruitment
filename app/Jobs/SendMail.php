@@ -15,19 +15,17 @@ class SendMail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $trans;
-    protected $products;
-    protected $sizes;
+    protected $jobs;
+    protected $employee;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($trans,$products,$sizes)
+    public function __construct($jobs, $employee)
     {
-        $this->trans=$trans;
-        $this->products=$products;
-        $this->sizes=$sizes;
+        $this->jobs = $jobs;
+        $this->employee = $employee;
     }
 
     /**
@@ -37,6 +35,6 @@ class SendMail implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->trans->email)->send(new MailNotify($this->trans,$this->products,$this->sizes));
+        Mail::to($this->employee->email)->send(new MailNotify($this->jobs, $this->employee));
     }
 }

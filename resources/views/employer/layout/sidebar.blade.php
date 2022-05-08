@@ -6,7 +6,7 @@
         </div>
         <div class="nk-sidebar-brand">
             <a href="\admin\products" class="logo-link nk-sidebar-logo nk-menu-text">
-                <img class="logo-light logo-img" src="{{asset('/logo.png')}}" srcset="./images/logo2x.png 3x" alt="logo">
+                <a class="navbar-brand logo"><img src="http://127.0.0.1/jobboard/assets/img/logo.png" alt=""></a>
             </a>
         </div>
     </div><!-- .nk-sidebar-element -->
@@ -17,12 +17,13 @@
                     <li class="nk-menu-heading">
                         <h6 class="overline-title text-primary-alt">Dashboards</h6>
                     </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item {{request()->segment(2) == '/' ? 'active current-page' : ''}}">
-                        <a href="{{route('employer.index')}}" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
-                            <span class="nk-menu-text">List CV</span>
+                    <li class="nk-menu-item {{request()->segment(3) == 'job' ? 'active current-page' : ''}}">
+                        <a href="{{route('job.index')}}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-file-docs"></em></span>
+                            <span class="nk-menu-text">Job list</span>
                         </a>
                     </li><!-- .nk-menu-item -->
+
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-sidebar-menu -->
         </div><!-- .nk-sidebar-content -->

@@ -11,6 +11,6 @@ class Salary extends Model
     protected $table = 'salary';
     protected $fillable = [
         'upper_limit',
-        'power_limit'
+        'lower_limit'
     ];
 }

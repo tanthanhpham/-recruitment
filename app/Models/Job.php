@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     use HasFactory;
+
+    /**
+     * @var mixed
+     */
     protected $table = 'job' ;
     protected $fillable = [
+        'name',
         'position',
         'description',
         'benefit',
@@ -21,5 +26,6 @@ class Job extends Model
         'certificate_id',
         'field_id',
         'salary_id',
+        'end_date'
     ];
 }

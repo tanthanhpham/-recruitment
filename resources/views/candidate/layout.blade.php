@@ -6,8 +6,24 @@
 
 <body>
 <!-- Header Section Start -->
-    @include('candidate.layout.header')
 
+    @include('candidate.layout.header')
+    <div class="text-center">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
     @yield('main')
 
 <!-- Footer Section Start -->

@@ -13,7 +13,7 @@ class EmployerController extends Controller
         if (Auth::guard('employer')->check()) {
             $employer = Auth::guard('employer')->user();
             $check = true;
-            return view('employer.user.index', compact('employer', 'check'));
+            return redirect()->route('job.index');
         }else {
             $check = false;
             return view('employer.user.index', compact('check'));
@@ -21,6 +21,7 @@ class EmployerController extends Controller
     }
 
     public function create(){
+
         return view('employer.user.register');
     }
 
@@ -43,21 +44,29 @@ class EmployerController extends Controller
         $employer->address = $validated_data['address'];
         $employer->company = $validated_data['company'];
         $employer->password = $validated_data['password'];
+        $employer->role = 'employer';
 
         $employer->save();
-        return redirect()->route('employer.create');
+        return redirect()->route('employer.login');
     }
 
     public function signin(){
+
         return view('employer.user.login');
     }
 
     public function login(Request $request){
         $credentials = $request->only('email','password');
         if (Auth::guard('employer')->attempt($credentials)) {
-            return redirect()->route('employer.index');
+            $employer = Auth::guard('employer')->user();
+            if ($employer->role == 'employer'){
+                return redirect()->route('employer.index');
+            }
+
+            return redirect()->route('employer.signin');
         }else {
-            return view('employer.user.login');
+
+            return redirect()->route('employer.signin');
         };
     }
 

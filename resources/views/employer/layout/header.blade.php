@@ -20,7 +20,7 @@
                                     <em class="icon ni ni-user-alt"></em>
                                 </div>
                                 <div class="user-info d-none d-md-block">
-                                    <div class="user-status">Administrator</div>
+                                    <div class="user-status">Employer</div>
                                     <div class="user-name dropdown-indicator">{{$employer->name}}</div>
                                 </div>
                             </div>
@@ -48,12 +48,13 @@
                                 <ul class="link-list">
                                     <li><a href="{{ route('employer.show', ['id' => $employer->id]) }}"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
                                     <li><a href="{{ route('employer.changePassword', ['id' => $employer->id]) }}"><em class="icon ni ni-setting-alt"></em><span>Change Password</span></a></li>
+                                    <li><a href="{{ route('employer.edit', ['id' => $employer->id]) }}"><em class="icon ni ni-edit-alt"></em><span>Edit profile</span></a></li>
                                     <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
                                 </ul>
                             </div>
                             <div class="dropdown-inner">
                                 <ul class="link-list">
-                                    <li><a href=""><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                    <li><a href="{{ route('employer.logout') }}"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
                                 </ul>
                             </div>
                         </div>
