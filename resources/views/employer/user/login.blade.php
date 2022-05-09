@@ -21,8 +21,6 @@
 </head>
 <body>
 
-
-
 <div class="content">
     <div class="container">
         <div class="row">
@@ -55,8 +53,9 @@
                                 <input type="password" name="password" class="form-control" id="password">
                             </div>
 
-                            <input type="submit" value="Sign up" class="btn text-white btn-block btn-primary" style="background: #6576ff">
+                            <input type="submit" value="Sign in" class="btn text-white btn-block btn-primary" style="background: #6576ff">
                         </form>
+                        <div class="mt-3 text-black-300">You don't have an account? <span class="font-weight-bold"><a class="link-info" href="{{ route('employer.create') }}"> Sign up here!</a></span></div>
                     </div>
                 </div>
 
