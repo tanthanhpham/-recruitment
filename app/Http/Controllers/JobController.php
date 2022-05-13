@@ -117,7 +117,6 @@ class JobController extends Controller
         $job->path = $nameFIle;
 
         $date =  Carbon::createFromFormat('m/d/Y', $validated_data['end_date'])->format('m-d-Y');
-
         $job->end_date = new \DateTime($date);;
 
         $job->save();
